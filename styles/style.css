@@ -1,0 +1,13 @@
+.header {
+    height: 200px;
+    background-color: #ccc;
+}
+
+.page-content {
+    min-height: 400px;
+}
+
+.footer {
+    height: 200px;
+    background-color: #ccc;
+}

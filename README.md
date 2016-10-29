@@ -61,3 +61,17 @@ The project structure outline key directories and files and provides a quick des
 │
 ```
 
+---
+
+## Dev setup recommendation
+
+I suggest [VSCode](https://code.visualstudio.com/) with the following extensions available directly in extensions tab of the app.
+
+1. Babel ES6/ES7
+2. React Standard Style Code Snippets
+3. ESLint
+
+
+
+
+

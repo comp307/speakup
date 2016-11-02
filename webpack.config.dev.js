@@ -14,7 +14,7 @@ var config = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin()        
     ],
     module: {
         loaders: [
@@ -22,9 +22,17 @@ var config = {
                 test: /\.js$/,
                 loaders: ['babel'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loaders: [
+                    'style', 
+                    'css?sourceMap', 
+                    'sass?sourceMap'                    
+                ]
             }
         ]
-    },
+    },   
     stats: {
         errorDetails: true
     }

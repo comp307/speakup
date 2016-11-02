@@ -10,6 +10,9 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Main from './components/Main';
 
+// Stylesheets
+import './styles/app.scss';
+
 /**
 * App component.
 * A wrapper for the whole application

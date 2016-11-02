@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
+import '../styles/_header.scss';
 
 /**
  * Header component.

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../styles/_footer.scss';
 
 /**
  * Footer component.

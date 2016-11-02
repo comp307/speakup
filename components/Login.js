@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../styles/_login.scss';
 
 /**
  * Login Component.

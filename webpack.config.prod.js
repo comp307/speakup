@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
     devtool: 'source-map',
@@ -21,7 +22,8 @@ var config = {
             compressor: {
                 warnings: false
             }
-        })
+        }),
+        new ExtractTextPlugin('style.css')
     ],
     module: {
         loaders: [
@@ -29,6 +31,13 @@ var config = {
                 test: /\.js$/,
                 loaders: ['babel'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(
+                    'style', // The backup style loader
+                    'css?sourceMap!sass?sourceMap'
+                )
             }
         ]
     }

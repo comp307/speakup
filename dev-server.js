@@ -11,12 +11,12 @@ var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath    
 }));
 
 app.use("/styles", express.static(__dirname + '/styles'));
 
-//app.use(require('webpack-hot-middleware')(compiler));
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));

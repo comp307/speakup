@@ -20,8 +20,8 @@ class Login extends React.Component {
         <h3>Login</h3>
         <form>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input type="text" className="form-control" id="username" placeholder="Username" />
+            <label htmlFor="username">Email</label>
+            <input type="text" className="form-control" id="username" placeholder="Email" />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>

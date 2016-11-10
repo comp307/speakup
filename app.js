@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 // Page contents
 import Login from './components/Login';
 import Main from './components/Main';
+import Chat from './components/Chat';
 
 // Stylesheets
 import './styles/app.scss';
@@ -23,7 +24,7 @@ class App extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props);   
   }
 
   render() {
@@ -49,6 +50,7 @@ ReactDOM.render((
     <Route path="/" component={App}> 
       <IndexRoute component={Main}/>     
       <Route path="/login" component={Login}/>
+      <Route path="/chat" component={Chat}/>
       <Route path="*" component={Main}/>      
     </Route>
   </Router>

@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Main from './components/Main';
 import Chat from './components/Chat';
+import Register from './components/Register';
 
 // Stylesheets
 import './styles/app.scss';
@@ -51,6 +52,7 @@ ReactDOM.render((
       <IndexRoute component={Main}/>     
       <Route path="/login" component={Login}/>
       <Route path="/chat" component={Chat}/>
+      <Route path="/register" component={Register}/>
       <Route path="*" component={Main}/>      
     </Route>
   </Router>

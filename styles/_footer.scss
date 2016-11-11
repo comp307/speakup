@@ -1,4 +1,5 @@
+@import "styles/variables";
 .footer {
     height: 200px;
-    background-color: #ccc;
+    background-color: $primary-color;
 }

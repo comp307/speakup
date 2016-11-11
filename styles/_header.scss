@@ -1,4 +1,15 @@
+@import "styles/variables";
+
 .header {
-    height: 200px;
-    background-color: #ccc;
+    height: $header-footer-height;
+    background-color: $primary-color;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.header h1{
+        font-size: 60px;
+        font-family: 'Lobster', cursive;
+        padding-top: $header-footer-height - 180px;
 }

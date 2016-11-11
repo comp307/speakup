@@ -1,0 +1,7 @@
+$primary-color: #333;
+$header-footer-height: 160px;
+
+@mixin no_margin_or_padding{
+    padding: 0;
+    margin:0;
+}

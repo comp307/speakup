@@ -17,36 +17,21 @@ class Main extends React.Component {
   render() {
     return (
       <div className="container">
+
           <div className="jumbotron">
             <h2>Ask Questions Anonymously</h2>
             <p>Join a lecture stream or start your own. Text about app.. </p>
           </div>
 
-        <div className="row">
-          <div className="col-md-6">
-              <h2>Create Stream</h2>
-              <div className="form-group">
-                <input type="text" className="form-control" id="username" placeholder="Username" />
-              </div>
-              <div className="form-group">
-                <input type="password" className="form-control" id="password" placeholder="Password" />
-              </div>  
-          </div>
-
-          <div className="col-md-6">
-            <h2>Join Stream</h2>
-            <div className="form-group">      
-              <input type="text" className="form-control" id="username" placeholder="Username" />
+          <div className="row">
+            <div className="col-md-4 col-md-offset-4">
+              <button type="button" className="btn btn-xl btn-block">Create Lecture <span className="glyphicon glyphicon-share-alt"></span></button>
+              <button type="button" className="btn btn-xl btn-block">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></button>
+              <button type="button" className="btn btn-xl btn-block">Register <span className="glyphicon glyphicon-share-alt"></span></button>
             </div>
-            <div className="form-group">
-              <input type="password" className="form-control" id="password" placeholder="Password" />
-            </div>  
-            <div className="form-group">
-              <input type="text" className="form-control" id="streamID" placeholder="Stream ID" />
-            </div>  
           </div>
           
-        </div>
+
       </div>   
     );
   }

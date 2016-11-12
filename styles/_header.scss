@@ -5,11 +5,38 @@
     background-color: $primary-color;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 
 
 .header h1{
-        font-size: 60px;
-        font-family: 'Lobster', cursive;
-        padding-top: $header-footer-height - 180px;
+    font-size: 70px;
+    font-family: 'Lobster', cursive;
+    padding-top: $header-footer-height - 180px;
+    color: $orange;
+    margin-bottom: 13px;
+}
+
+   
+  .navbar-nav li a {
+    color: #777777;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    &:hover {
+      color: $primary-color;
+      background-color:#777777;
+
+    }
+    &:focus {
+      color: $primary-color;
+      background-color: #777777;
+
+    }
+    &:active {
+              color: $primary-color;
+      background-color: #777777;
+
+    }
+  
 }

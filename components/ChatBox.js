@@ -91,7 +91,7 @@ class ChatBox extends Component {
         <div className="message-list">
           {messages}
         </div>
-        <div className="input-box">
+        <div className="input-group input-box">
           <input
             type="text"
             value={this.state.message}

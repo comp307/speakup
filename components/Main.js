@@ -27,12 +27,12 @@ class Main extends React.Component {
           <div className="row">
             <div className="col-md-4 col-md-offset-4">
               <Link to="/create" className="btn btn-xl btn-block" role="button">Create Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
-              <Link to="/join" className="btn btn-xl btn-block" roll="button">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
+              <Link to="/join" className="btn btn-xl btn-block" role="button">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
               <Link to="/register" className="btn btn-xl btn-block" role="button">Register <span className="glyphicon glyphicon-share-alt"></span></Link>
             </div>
           </div>
-          
-      </div>   
+
+      </div>
     );
   }
 }

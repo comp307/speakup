@@ -1,0 +1,42 @@
+@import "styles/variables";
+
+
+.jumbotron{
+
+    margin: 0;
+    padding: 40px 0px 60px 0px;
+
+    h2 {
+        font-size: 50px;
+    }       
+}
+
+
+.btn-xl {
+    padding: 20px 0px 20px 0px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: $red;
+    border: 0 none;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: white;
+
+    &:hover {
+        background: #d98c8c;
+        color: white;
+    }
+}
+
+.col-md-4 {
+    padding: 0px 70px 0px 70px;
+}
+
+
+
+
+.row {
+    margin-bottom: 100px;
+}
+ 

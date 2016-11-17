@@ -19,11 +19,13 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="container">
-          <h2>Speak Up</h2>
-          <nav>
+          <h1>Speakup <small>boiii</small> </h1>
+        <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </nav>            
+            <li><Link to="/create">Create Lecture</Link></li>
+            <li><Link to="/join">Join Lecture</Link></li>
+            <li><Link to="/register">Register</Link></li>
+        </ul>          
         </div>        
       </header>
     );

@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client';
 
+import UserList from './UserList';
+import ChatBox from './ChatBox';
+
+
 import '../styles/_chat.scss';
 
 /**
@@ -15,87 +19,47 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
 
-    // Bind local functions
-    this.handleChange = this.handleChange.bind(this);
-    this.sendMessage = this.sendMessage.bind(this);
-    this.addMessage = this.addMessage.bind(this);
-    this.socketListeners = this.socketListeners.bind(this); 
-    
-    // Set up sockets
-    this.socket = io('http://localhost:3333');
-    
-    // Set up initial state
-    this.state = {
-      messages: [],
-      message: ""
+    let user = window.localStorage['user'];
+    var query = {
+      query: "user=" + user
     };
 
-    this.socketListeners();
+    this.state = {
+      user: user
+    };
 
-  }
-
-  socketListeners() {
-    
-    console.log('hi');
+    // Set up sockets
+    this.socket = io('http://localhost:3333', query);
 
     this.socket.on('connect', function () {
-      console.log("You are connected to chat x")
-    });
-    
-    this.socket.on('welcome', function (data) {
-      console.log(data);
+      console.log("You are connected to Chat X");
     });
 
     this.socket.on('disconnect', function () {
-      console.log("bye-bye...")
-    });
-
-    var that = this;
-    this.socket.on('newMessage', function (data) {
-      that.addMessage(data);
+      console.log("You are disconnected from Chat X");
     });
 
   }
 
-  addMessage(data) {
-    var messages = this.state.messages;
-    messages.push(data);
-    this.setState({ messages });
-  }
-
-  sendMessage(e) {
-    this.socket.emit(`newMessage`, this.state.message);
-    this.setState({
-      message: ""
-    });
-  }
-
-  handleChange(e) {
-    this.setState({
-      message: e.target.value
-    });
-  }
 
   render() {
-
-    const messages = this.state.messages.map((message, key) => {
-      return (<div className="message" key={key}>{message}</div>);
-    });
-
     return (
       <div className="container">
-        <br />
-        <div className="message-list">
-          {messages}
+        <div className="chat-wrapper">
+        <div className="row">
+          <div className="col-sm-3 col-md-3">
+            <UserList
+              socket={this.socket}
+            />
+          </div>
+          <div className="col-sm-9 col-md-9">
+            <ChatBox
+              user={this.state.user}
+              socket={this.socket}
+            />
+          </div>
         </div>
-        Enter your message: 
-        <input
-          type="text"
-          value={this.state.message}
-          onChange={this.handleChange}
-          />
-        <br />
-        <button className="btn btn-default" onClick={this.sendMessage}>Send</button>
+        </div>
       </div>
     );
   }

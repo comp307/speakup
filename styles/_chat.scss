@@ -1,10 +1,71 @@
-.message-list {
-    background-color: #f5f5f5;
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-    .message {
-        padding: 10px;
-        margin: 5px 0;
-        background: rgba(204, 204, 204, 0.25);
+.chat-wrapper {
+    background-color: #f5f5f5;
+    margin: 30px 0;
+    padding: 0 10px;
+    min-height: 500px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+.chat-box {
+    min-height: 500px;
+    position: relative;
+    border-left: 1px solid #aaa;
+    padding: 5px;
+}
+
+// Chatbox.js
+.message-list {
+
+  overflow-y: scroll;
+  height: 440px;
+
+  .message {
+    padding: 10px;
+    /*margin: 5px 0;
+    background: rgba(204, 204, 204, 0.25);*/
+
+    .message__meta {
+        padding: 5px 0;
     }
 
+    .message__user {
+        font-weight: 600;
+        padding-right: 10px;
+    }
+
+    .message__time {
+        font-size: 12px;
+        color: #ccc;
+    }
+  }
 }
+
+.input-box {
+
+  @extend .input-group;
+  margin: 10px 0;
+  position: absolute;
+  bottom: 0;
+
+  .input-group-addon {
+    padding: 0;
+  }
+
+  .btn-send {
+    margin: 0;
+    padding: 5px 30px;
+    border: 0;
+    outline: none !important;
+  }
+
+}
+
+
+// UserList.js
+.users-list {
+    background: #f5f5f5;
+}
+

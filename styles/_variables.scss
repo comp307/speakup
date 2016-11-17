@@ -1,0 +1,12 @@
+//This file contains all SASS variables that each style file may use
+
+$primary-color: #333;
+$header-footer-height: 160px;
+$orange: #ff884d;//#e69900#ffb31a#f48024
+$red: #c65353;
+$yellow: #ffff80;
+
+@mixin no_margin_or_padding{
+    padding: 0;
+    margin:0;
+}

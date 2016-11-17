@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="container">
-                    I am a footer
+
                 </div>
             </footer>
         )

@@ -29,7 +29,7 @@ class Chat extends React.Component {
     };
 
     // Set up sockets
-    this.socket = io('http://localhost:3333', query);
+    this.socket = io('http://localhost:8080', query);
 
     this.socket.on('connect', function () {
       console.log("You are connected to Chat X");

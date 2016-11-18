@@ -5,11 +5,12 @@ var morgan      = require('morgan');
 var mongoose    = require('mongoose');
 
 var jwt    = require('jsonwebtoken'); // create and verify tokens
-var config = require('./config'); 
+var config = require('./config');
 var User   = require('./models/user');
 
-var port = process.env.PORT || 8080; 
-mongoose.connect(config.database); 
+var port = process.env.PORT || 8080;
+
+mongoose.connect(config.database);
 app.set('superSecret', config.secret); // create variable superSecret and set it to config.secret
 
 // use body parser so we can get info from POST and/or URL parameters
@@ -39,8 +40,8 @@ app.post('/api/auth',function(req, res){
 //TO-DO: Hash userpassword register
 app.post('/api/reg', function(req, res) {
 
-  var userModel = new User({ 
-    name: req.body.name, 
+  var userModel = new User({
+    name: req.body.name,
     password: req.body.password
   });
 
@@ -64,5 +65,7 @@ app.post('/api/reg', function(req, res) {
 
 });
 
-app.listen(port);
-console.log('Server runs at http:'+port);
+var server = app.listen(port);
+console.log('Server runs at http:' + port);
+
+require('./sockets.js').Socket(server);

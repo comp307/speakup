@@ -27,7 +27,7 @@ var config = {
                 test: /\.scss$/,
                 loaders: [
                     'style',
-                    'css?sourceMap',
+                    'css',
                     'sass?sourceMap'
                 ]
             },

@@ -11,10 +11,11 @@ var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath    
+    publicPath: config.output.publicPath
 }));
 
-app.use("/styles", express.static(__dirname + '/styles'));
+app.use("/styles", express.static(__dirname + '/dist'));
+app.use("/images", express.static(__dirname + '/dist'));
 
 app.use(require('webpack-hot-middleware')(compiler));
 

@@ -3,6 +3,7 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
+var cors        = require('cors');
 
 var jwt    = require('jsonwebtoken'); // create and verify tokens
 var config = require('./config');
@@ -16,7 +17,8 @@ app.set('superSecret', config.secret); // create variable superSecret and set it
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));//logs requests into console
+app.use(morgan('dev')); //logs requests into console
+app.use(cors());
 
 
 //TO-DO:Check against hash of the user
@@ -40,17 +42,21 @@ app.post('/api/auth',function(req, res){
 //TO-DO: Hash userpassword register
 app.post('/api/reg', function(req, res) {
 
+
+
   var userModel = new User({
     name: req.body.name,
     password: req.body.password
   });
+
+  console.log(userModel);
 
   //If user is not in the database register him
   User.findOne({
       name: req.body.name
   }, function(err, user){
       if(err) throw error;
-
+      console.log(user);
       if(user){
           res.json({success:false, message: 'Username already exists'});
       }

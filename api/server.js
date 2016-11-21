@@ -42,21 +42,17 @@ app.post('/api/auth',function(req, res){
 //TO-DO: Hash userpassword register
 app.post('/api/reg', function(req, res) {
 
-
-
   var userModel = new User({
     name: req.body.name,
     password: req.body.password
   });
-
-  console.log(userModel);
 
   //If user is not in the database register him
   User.findOne({
       name: req.body.name
   }, function(err, user){
       if(err) throw error;
-      console.log(user);
+
       if(user){
           res.json({success:false, message: 'Username already exists'});
       }
@@ -65,7 +61,7 @@ app.post('/api/reg', function(req, res) {
             if (err) throw err;
             console.log('User saved successfully');
             res.json({ success: true, message: 'User is registered' });
-        })
+        });
       }
     });
 

@@ -14,15 +14,14 @@ class ChatBox extends Component {
     this.sendMessage = this.sendMessage.bind(this);
     this.addMessage = this.addMessage.bind(this);
 
-    let user = this.props.user ? this.props.user : 'Unknown';
-
     // Set up initial state
     this.state = {
       messages: [],
-      message: '',
-      user: user,
+      message: ''
     };
+  }
 
+  componentDidMount() {
     let self = this;
 
     // Initilize messages
@@ -44,7 +43,10 @@ class ChatBox extends Component {
   addMessage(data) {
     let messages = this.state.messages;
     messages.push(data);
-    this.setState({messages});
+    this.setState({
+      messages,
+      message: '',
+    });
   }
 
   /**
@@ -53,14 +55,12 @@ class ChatBox extends Component {
   sendMessage(e) {
     let newMessage = {
       message: this.state.message,
-      user: this.state.user,
+      user: this.props.sessionData.user,
+      streamID: this.props.sessionData.streamID,
       time: Date.now(),
     };
 
     this.props.socket.emit('newMessage', newMessage);
-    this.setState({
-      message: '',
-    });
   }
 
   /**

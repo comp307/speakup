@@ -137,9 +137,6 @@ class Register extends React.Component {
                   />
                   <span id="password-help" className="help-block">{errorMessage}</span>
                 </div>
-                <div className={defaultClass}>
-                  <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} />
-                </div>
                 <button type="button" className="btn btn-lg btn-block" onClick={this.handleSubmit}>Submit</button>
             </div>
         </div>

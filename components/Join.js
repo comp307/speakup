@@ -95,20 +95,15 @@ class Join extends React.Component {
     return (
       <div>
            <div className="container">
-
             <div className="row">
-
-
                 <div className="col-md-4 col-md-offset-4">
                     <h2>Join Stream</h2>
                     <div className="form-group">
                       <input type="text" className="form-control" name="name" placeholder="Email" onChange={this.onUserInput} />
                     </div>
-
                     <div className="form-group">
                       <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} />
                     </div>
-
                     <div className="form-group">
                       <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} />
                     </div>

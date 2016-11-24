@@ -71,6 +71,15 @@ class App extends React.Component {
   }
 }
 
+function requireAuth(nextState, replace) {
+
+  const loggedIn = localStorage.getItem('token');
+
+  if (loggedIn === null) {
+    replace('/');
+  }
+}
+
 /**
  * The router render App component declared above.
  * Then it checks for subroutes and decides which component
@@ -80,7 +89,7 @@ ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Main}/>
-      <Route path="/chat/:chatId" component={Chat}/>
+      <Route path="/chat/:chatId" component={Chat} onEnter={requireAuth}/>
       <Route path="/register" component={Register}/>
       <Route path="/join" component={Join}/>
       <Route path="/create" component={Create}/>

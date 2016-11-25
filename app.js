@@ -29,9 +29,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    var sessionData = {
+      user: localStorage.getItem('user'),
+      streamID: localStorage.getItem('streamID'),
+      token: localStorage.getItem('token')
+    };
+
+
     this.setSession = this.setSession.bind(this);
     this.state = {
-      session: null
+      session: sessionData
     }
 
   }
@@ -47,9 +54,10 @@ class App extends React.Component {
       router.push(redirect);
     }
 
-    if (session && session.user && session.token) {
+    if (session && session.user && session.token && session.streamID) {
       localStorage.setItem('user', session.user);
       localStorage.setItem('token', session.token);
+      localStorage.setItem('streamID', session.streamID);
     }
 
     this.setState({session});

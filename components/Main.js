@@ -17,17 +17,16 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div  className="main">
+      <div className="main">
 
       <div className="container">
         <div className="jumbotron">
           <h2>Ask questions anonymously</h2>
-          <p>Speakup is McGill's first and only web application that facillitates student-professor communication during live lectures. Join tens of </p>
+          <p>Speakup is McGill's first and only web application that facillitates student-professor communication during live lectures. Join a lecture question stream or start your own. 
+          Literally tens of students and faculty are already using Speakup</p>
         </div>
 
-
-
-          <div id="m" className="row">
+          <div className="row">
             <div className="col-md-4 col-md-offset-4">
               <div className="panel panel-default">
                 <div className="panel-body  text-center">
@@ -38,16 +37,9 @@ class Main extends React.Component {
               </div>
               <p> Don't have an account? <Link to="/register">Register here.</Link></p>
             </div>
- 
               
-              
-
             </div>
           </div>
-
-
-
-
 </div>
       </div>   
     );

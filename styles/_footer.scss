@@ -1,5 +1,10 @@
 @import "styles/variables";
 .footer {
-    height: 170px;
+    height: 140px;
     background-color: $primary-color;
+
+    p{
+        padding-top: 60px;
+        color: #777777;
+    }
 }

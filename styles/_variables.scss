@@ -2,9 +2,10 @@
 
 $primary-color: #333;
 $header-footer-height: 160px;
-$orange: #ff884d;//#e69900#ffb31a#f48024
-$red: #c65353;
-$yellow: #ffff80;
+$primary: #66bb6a;
+$secondary: #ffb74d;
+$secondary-pale: #ffcc80;
+$secondary-dark: #fff176;
 
 @mixin no_margin_or_padding{
     padding: 0;

@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="container">
-
+                    copyright &copy Speakup 2016
                 </div>
             </footer>
         )

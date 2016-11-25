@@ -14,15 +14,14 @@ class ChatBox extends Component {
     this.sendMessage = this.sendMessage.bind(this);
     this.addMessage = this.addMessage.bind(this);
 
-    let user = this.props.user ? this.props.user : 'Unknown';
-
     // Set up initial state
     this.state = {
       messages: [],
-      message: '',
-      user: user,
+      message: ''
     };
+  }
 
+  componentDidMount() {
     let self = this;
 
     // Initilize messages
@@ -38,29 +37,50 @@ class ChatBox extends Component {
     });
   }
 
+  componentDidUpdate() {
+    // Scroll message list to the bottom
+    const messageContainer = this.refs.messageList;
+    if (messageContainer) {
+      const containerHeight = messageContainer.scrollHeight;
+      messageContainer.scrollTop = containerHeight;
+    }
+  }
+
   /**
    * Add new message
    */
   addMessage(data) {
     let messages = this.state.messages;
     messages.push(data);
-    this.setState({messages});
+    this.setState({
+      messages,
+      message: '',
+    });
   }
 
   /**
    * Send the message to the server
+   * Invoked either by pressing Send button
+   * or pressing Enter/Return key
+   *
+   * @param {event} e - key/button press
    */
   sendMessage(e) {
+    // Check for return key
+    if (e.target.id === 'input-msg') {
+      if (e.key !== 'Enter') {
+        return;
+      }
+    }
+
     let newMessage = {
       message: this.state.message,
-      user: this.state.user,
+      user: this.props.sessionData.user,
+      streamID: this.props.sessionData.streamID,
       time: Date.now(),
     };
 
     this.props.socket.emit('newMessage', newMessage);
-    this.setState({
-      message: '',
-    });
   }
 
   /**
@@ -88,18 +108,21 @@ class ChatBox extends Component {
 
     return (
       <div className="chat-box">
-        <div className="message-list">
+        <div className="message-list" ref="messageList">
           {messages}
         </div>
         <div className="input-group input-box">
           <input
+            id="input-msg"
             type="text"
             value={this.state.message}
             onChange={this.handleChange}
             className="form-control"
+            onKeyUp={this.sendMessage}
             />
           <div className="input-group-addon">
             <button
+              id="btn-send"
               className="btn btn-default btn-send"
               onClick={this.sendMessage}
             >

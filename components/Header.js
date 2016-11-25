@@ -13,9 +13,25 @@ class Header extends Component {
 
   constructor(props) {
     super(props);
+
+    this.logout = this.logout.bind(this);
+
+  }
+
+  logout() {
+    // Clear session
+    this.props.onSessionUpdate(null);
   }
 
   render() {
+
+    var dynamicButton = "";
+    if (this.props.session) {
+      dynamicButton = <li><a href="#" onClick={this.logout}>Logout</a></li>;
+    } else {
+      dynamicButton = <li><Link to="/register">Register</Link></li>;
+    }
+
     return (
       <header className="header">
         <div className="container">
@@ -24,9 +40,9 @@ class Header extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/create">Create Lecture</Link></li>
             <li><Link to="/join">Join Lecture</Link></li>
-            <li><Link to="/register">Register</Link></li>
-        </ul>          
-        </div>        
+            {dynamicButton}
+        </ul>
+        </div>
       </header>
     );
   }

@@ -1,0 +1,14 @@
+{
+   "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "ecmaVersion": 6,
+      "modules": true,
+      "jsx": true
+    }
+  },
+  "extends": ["google"],
+  "plugins": [
+    "react"
+  ] 
+}

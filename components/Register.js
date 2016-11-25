@@ -24,19 +24,19 @@ class Register extends React.Component {
 
                 <div className="col-md-4 col-md-offset-4">
                     <h2>Registration</h2>
-                    <div className="form-group">      
+                    <div className="form-group-lg">      
                       <input type="text" className="form-control" id="email" placeholder="Email" />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group-lg">
                       <input type="password" className="form-control" id="password" placeholder="Password" />
                     </div>  
 
-                    <div className="form-group">
+                    <div className="form-group-lg">
                       <input type="password" className="form-control" id="password" placeholder="Confirm password" />
                     </div> 
 
-                    <div className="form-group">
+                    <div className="form-group-lg">
                       <input type="text" className="form-control" id="streamID" placeholder="Stream ID" />
                     </div> 
                     <button type="button" className="btn btn-lg btn-block">Submit</button> 

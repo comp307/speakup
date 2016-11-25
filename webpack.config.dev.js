@@ -4,7 +4,8 @@ var webpack = require('webpack');
 var config = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
-        './app.js'
+        './app.js',
+         'webpack-hot-middleware/client'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
@@ -12,7 +13,8 @@ var config = {
         publicPath: '/dist/'
     },
     plugins: [
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()        
     ],
     module: {
         loaders: [
@@ -20,9 +22,17 @@ var config = {
                 test: /\.js$/,
                 loaders: ['babel'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loaders: [
+                    'style', 
+                    'css?sourceMap', 
+                    'sass?sourceMap'                    
+                ]
             }
         ]
-    },
+    },   
     stats: {
         errorDetails: true
     }

@@ -9,6 +9,13 @@ import Footer from './components/Footer';
 // Page contents
 import Login from './components/Login';
 import Main from './components/Main';
+import Chat from './components/Chat';
+import Register from './components/Register';
+import Join from './components/Join';
+import Create from './components/Create';
+
+// Stylesheets
+import './styles/app.scss';
 
 /**
 * App component.
@@ -20,7 +27,7 @@ class App extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props);   
   }
 
   render() {
@@ -40,13 +47,16 @@ class App extends React.Component {
  * The router render App component declared above. 
  * Then it checks for subroutes and decides which component 
  * to render based on subroute URL.
- */
+ <Route path="*" component={Home}/> */
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}> 
       <IndexRoute component={Main}/>     
       <Route path="/login" component={Login}/>
-      <Route path="*" component={Main}/>      
+      <Route path="/chat" component={Chat}/>
+      <Route path="/register" component={Register}/>
+      <Route path="/join" component={Join}/>
+      <Route path="/create" component={Create}/>   
     </Route>
   </Router>
 ), document.getElementById('page-root'));

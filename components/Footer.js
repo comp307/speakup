@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../styles/_footer.scss';
 
 /**
  * Footer component.
@@ -9,7 +10,7 @@ class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="container">
-                    I am a footer
+                    copyright &copy Speakup 2016
                 </div>
             </footer>
         )

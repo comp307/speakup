@@ -1,0 +1,65 @@
+@import "styles/variables";
+
+
+
+
+.navbar{
+    background-color: $primary-color;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    border-radius: 0px;
+    /*background: url('http://www.lifeofpix.com/wp-content/uploads/2014/09/bg9.jpg');
+
+
+    background-attachment: scroll;
+
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 30px;*/
+
+
+
+}
+
+
+ h1{
+    font-size: 66px;
+    font-family: 'Lobster', cursive;
+    padding-top: 5px;
+    color: $primary;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+}
+
+
+
+.navbar-nav {
+  //float: right;
+  padding-top: 45px;
+  padding-left: 20px;
+  
+    li a {
+      color: #777777;
+      text-transform: uppercase;
+      font-size: 16px;
+
+      &:hover {
+        color: $primary;
+        background-color:#777777;
+
+      }
+      &:focus {
+        color: $primary;
+        background-color: #777777;
+
+      }
+      &:active {
+                color: $primary;
+        background-color: #777777;
+
+      }
+    
+  }
+}

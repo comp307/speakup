@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
+import '../styles/_header.scss';
 
 /**
  * Header component.
@@ -16,15 +17,30 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header">
+
+      <div className="navbar">
         <div className="container">
-          <h2>Speak Up</h2>
-          <nav>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </nav>            
+         <div className="navbar-header">
+             <h1>Speakup <small>boiii</small> </h1>
+          </div>
+          <ul className="nav navbar-nav">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">About</Link></li>
+                    <li><Link to="/">Contact</Link></li>
+          </ul>
+        </div>
+      </div>
+ /*<div className="header-title">
+        <div className="container">
+      
+          <ul className="nav navbar-nav">
+          <h1>Speakup <small>boiii</small> </h1>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">About</Link></li>
+              <li><Link to="/">Contact</Link></li>
+          </ul>          
         </div>        
-      </header>
+      </div>*/
     );
   }
 }

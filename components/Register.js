@@ -107,7 +107,7 @@ class Register extends React.Component {
 
     var hasError = this.state.hasError;
     var errorMessage = this.state.errorMessage;
-    var defaultClass = "form-group";
+    var defaultClass = "form-group-lg";
     var errors = this.state.errors;
 
     var confirmPassClass = defaultClass;

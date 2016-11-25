@@ -98,13 +98,13 @@ class Join extends React.Component {
             <div className="row">
                 <div className="col-md-4 col-md-offset-4">
                     <h2>Join Stream</h2>
-                    <div className="form-group">
-                      <input type="text" className="form-control" name="name" placeholder="Email" onChange={this.onUserInput} />
+                    <div className="form-group-lg">
+                      <input type="email" className="form-control" name="name" placeholder="Email" onChange={this.onUserInput} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-lg">
                       <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-lg">
                       <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} />
                     </div>
                     <button type="button" className="btn btn-lg btn-block" onClick={this.handleSubmit}>Submit</button>

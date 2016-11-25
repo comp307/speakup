@@ -1,39 +1,55 @@
 @import "styles/variables";
 
-.header {
-    height: $header-footer-height;
-    background-color: lighten($color: $primary-color, $amount: 10);
-    color: #fff;
+
+
+
+.navbar{
+    background-color: $primary-color;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
+    margin: 0;
+    border-radius: 0px;
+
 }
 
-.header h1 {
-    font-size: 70px;
+
+ h1{
+    font-size: 66px;
     font-family: 'Lobster', cursive;
-    padding-top: $header-footer-height - 180px;
-    color: $orange;
-    margin-bottom: 13px;
+    padding-top: 5px;
+    color: $primary;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
 }
 
-.navbar-nav li a {
-    color: #777777;
-    text-transform: uppercase;
-    font-size: 12px;
 
-    &:hover {
-      color: $primary-color;
-      background-color:#777777;
 
-    }
-    &:focus {
-      color: $primary-color;
-      background-color: #777777;
+.navbar-nav {
+  //float: right;
+  padding-top: 45px;
+  padding-left: 20px;
+  
+    li a {
+      color: #777777;
+      text-transform: uppercase;
+      font-size: 16px;
 
-    }
-    &:active {
-      color: $primary-color;
-      background-color: #777777;
+      &:hover {
+        color: $primary;
+        background-color:#777777;
 
-    }
+      }
+      &:focus {
+        color: $primary;
+        background-color: #777777;
+
+      }
+      &:active {
+                color: $primary;
+        background-color: #777777;
+
+      }
+    
+  }
 }

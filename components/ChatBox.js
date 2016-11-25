@@ -37,6 +37,15 @@ class ChatBox extends Component {
     });
   }
 
+  componentDidUpdate() {
+    // Scroll message list to the bottom
+    const messageContainer = this.refs.messageList;
+    if (messageContainer) {
+      const containerHeight = messageContainer.scrollHeight;
+      messageContainer.scrollTop = containerHeight;
+    }
+  }
+
   /**
    * Add new message
    */
@@ -99,7 +108,7 @@ class ChatBox extends Component {
 
     return (
       <div className="chat-box">
-        <div className="message-list">
+        <div className="message-list" ref="messageList">
           {messages}
         </div>
         <div className="input-group input-box">

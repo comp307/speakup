@@ -17,17 +17,30 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header">
+
+      <div className="navbar">
         <div className="container">
+         <div className="navbar-header">
+             <h1>Speakup <small>boiii</small> </h1>
+          </div>
+          <ul className="nav navbar-nav">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">About</Link></li>
+                    <li><Link to="/">Contact</Link></li>
+          </ul>
+        </div>
+      </div>
+ /*<div className="header-title">
+        <div className="container">
+      
+          <ul className="nav navbar-nav">
           <h1>Speakup <small>boiii</small> </h1>
-        <ul className="nav navbar-nav">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/create">Create Lecture</Link></li>
-            <li><Link to="/join">Join Lecture</Link></li>
-            <li><Link to="/register">Register</Link></li>
-        </ul>          
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">About</Link></li>
+              <li><Link to="/">Contact</Link></li>
+          </ul>          
         </div>        
-      </header>
+      </div>*/
     );
   }
 }

@@ -17,21 +17,38 @@ class Main extends React.Component {
 
   render() {
     return (
+      <div  className="main">
+
       <div className="container">
+        <div className="jumbotron">
+          <h2>Ask questions anonymously</h2>
+          <p>Speakup is McGill's first and only web application that facillitates student-professor communication during live lectures. Join tens of </p>
+        </div>
 
-          <div className="jumbotron">
-            <h2>Ask Questions Anonymously</h2>
-            <p>Join a lecture stream or start your own. Text about app.. </p>
-          </div>
 
-          <div className="row">
+
+          <div id="m" className="row">
             <div className="col-md-4 col-md-offset-4">
-              <Link to="/create" className="btn btn-xl btn-block" role="button">Create Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
-              <Link to="/join" className="btn btn-xl btn-block" roll="button">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
-              <Link to="/register" className="btn btn-xl btn-block" role="button">Register <span className="glyphicon glyphicon-share-alt"></span></Link>
+              <div className="panel panel-default">
+                <div className="panel-body  text-center">
+                  <Link to="/create" className="btn " role="button">Create Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
+                  <p id="or"> OR</p>
+                  <Link to="/join" className="btn  " roll="button">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
+                  
+              </div>
+              <p> Don't have an account? <Link to="/register">Register here.</Link></p>
+            </div>
+ 
+              
+              
+
             </div>
           </div>
-          
+
+
+
+
+</div>
       </div>   
     );
   }

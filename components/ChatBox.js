@@ -51,8 +51,19 @@ class ChatBox extends Component {
 
   /**
    * Send the message to the server
+   * Invoked either by pressing Send button
+   * or pressing Enter/Return key
+   *
+   * @param {event} e - key/button press
    */
   sendMessage(e) {
+    // Check for return key
+    if (e.target.id === 'input-msg') {
+      if (e.key !== 'Enter') {
+        return;
+      }
+    }
+
     let newMessage = {
       message: this.state.message,
       user: this.props.sessionData.user,
@@ -93,13 +104,16 @@ class ChatBox extends Component {
         </div>
         <div className="input-group input-box">
           <input
+            id="input-msg"
             type="text"
             value={this.state.message}
             onChange={this.handleChange}
             className="form-control"
+            onKeyUp={this.sendMessage}
             />
           <div className="input-group-addon">
             <button
+              id="btn-send"
               className="btn btn-default btn-send"
               onClick={this.sendMessage}
             >

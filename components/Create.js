@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import '../styles/_register.scss';
+import '../styles/_create.scss';
 
 /**
  * Register component.

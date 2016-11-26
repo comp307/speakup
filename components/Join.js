@@ -107,7 +107,7 @@ class Join extends React.Component {
                     <div className="form-group-lg">
                       <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} />
                     </div>
-                    <button type="button" className="btn btn-lg btn-block" onClick={this.handleSubmit}>Submit</button>
+                    <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Submit</button>
                 </div>
             </div>
 

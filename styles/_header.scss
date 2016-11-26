@@ -4,7 +4,7 @@
 
 
 .navbar{
-    background-color: $primary-color;
+    background-color: $bg-color;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     margin: 0;
@@ -29,7 +29,7 @@
   //float: right;
   padding-top: 45px;
   padding-left: 20px;
-  
+
     li a {
       color: #777777;
       text-transform: uppercase;
@@ -50,6 +50,6 @@
         background-color: #777777;
 
       }
-    
+
   }
 }

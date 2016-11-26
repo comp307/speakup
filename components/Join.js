@@ -62,7 +62,7 @@ class Join extends React.Component {
 
           var sessionData = {
             user: formData['name'],
-            streamID: formData['stream_id'],
+            streamID: response.streamID,
             token: response.token,
           };
 

@@ -121,7 +121,7 @@ class Register extends React.Component {
             <div className="col-md-4 col-md-offset-4">
                 <h2>Registration</h2>
                 <div className={defaultClass}>
-                  <input type="text" className="form-control" name="name" placeholder="Email" onChange={this.onUserInput}/>
+                  <input type="text" className="form-control" name="email" placeholder="Email" onChange={this.onUserInput}/>
                 </div>
                 <div className={defaultClass}>
                   <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} />

@@ -29,7 +29,7 @@ app.post('/api/auth', function(req, res) {
   // If username is in database and his password matches
   // with the one in database then send webtoken
   User.findOne({
-    name: req.body.name,
+    email: req.body.email,
     password: req.body.password,
   }, function(err, user) {
     if (err) throw err;
@@ -59,13 +59,13 @@ app.post('/api/auth', function(req, res) {
 // TO-DO: Hash userpassword register
 app.post('/api/reg', function(req, res) {
   let userModel = new User({
-    name: req.body.name,
+    email: req.body.email,
     password: req.body.password,
   });
 
   // If user is not in the database register him
   User.findOne({
-    name: req.body.name,
+    email: req.body.email,
   }, function(err, user) {
     if (err) throw error;
 

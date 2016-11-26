@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import '../styles/_join.scss';
 
 /**
@@ -6,9 +6,6 @@ import '../styles/_join.scss';
  * Represents the registration page content.
  */
 class Join extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
 
   constructor(props) {
     super(props);
@@ -61,7 +58,7 @@ class Join extends React.Component {
         if (response.success) {
 
           var sessionData = {
-            user: formData['name'],
+            user: formData['email'],
             streamID: response.streamID,
             token: response.token,
           };
@@ -99,13 +96,13 @@ class Join extends React.Component {
                 <div className="col-md-4 col-md-offset-4">
                     <h2>Join Stream</h2>
                     <div className="form-group-lg">
-                      <input type="email" className="form-control" name="name" placeholder="Email" onChange={this.onUserInput} />
+                      <input type="email" className="form-control" name="email" placeholder="Email" onChange={this.onUserInput} required/>
                     </div>
                     <div className="form-group-lg">
-                      <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} />
+                      <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} required/>
                     </div>
                     <div className="form-group-lg">
-                      <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} />
+                      <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} required />
                     </div>
                     <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Submit</button>
                 </div>

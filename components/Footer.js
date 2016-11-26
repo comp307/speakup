@@ -9,8 +9,8 @@ class Footer extends Component {
     render () {
         return (
             <footer className="footer">
-                <div className="container">
-                    copyright &copy Speakup 2016
+                <div className="container text-center">
+                   <p> Copyright <span className="glyphicon glyphicon-copyright-mark"></span> Speakup 2016</p>
                 </div>
             </footer>
         )

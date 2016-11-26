@@ -1,3 +1,43 @@
+@import '../node_modules/sweetalert/dist/sweetalert.css';
+@import "variables";
+// .page-wrapper {
+//     background: url('~../images/bg1.jpg');
+//     background-size: cover;
+// }
+
+.padding-v10 {
+    padding: 10px 0;
+}
+
+.btn-speakup {
+
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 100%;
+    text-transform: uppercase;
+    color: black;
+    background: $secondary;
+
+    &:hover {
+        color: black;
+        background-color:$secondary-pale;
+    }
+
+    &:focus {
+        color: black;
+        background-color: $secondary-dark;
+    }
+
+    &:active {
+        color: black;
+        background-color: $secondary-dark;
+    }
+}
+
+
 .page-content {
     min-height: 400px;
     font-family: 'Open Sans', sans-serif;

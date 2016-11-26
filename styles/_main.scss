@@ -1,37 +1,64 @@
 @import "styles/variables";
 
-.jumbotron{
-    background: none;
-}
 
-.main{
+$section-height: 400px;
 
-    margin: 0;
-    height: 1000px;
-    background-image: url('https://images.unsplash.com/photo-1475332340095-a12d7b5a7fdc?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop=');
-    background-attachment: scroll;
-    background-size: cover;
-   -moz-background-size: cover;
-    margin-bottom: 30px;
+.main-page {
 
-    h2 {
-        font-size: 50px;
-    }       
-}
-
-p{
-    margin-bottom: 0;
-    color: red;
- 
-}
-
-#m{
-    margin-top: 200px;
-
-    .col-md-4 {
-  
+    .jumbotron {
+        background: none;
     }
+
+    .login-section {
+        background: url('~../images/bg1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 600px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .login-box {
+            padding: 70px 50px;
+            background: rgba(#000, 0.6);
+            color: #fff;
+            border: 1px solid rgba(255, 183, 77, 0.42);
+            box-shadow: 1px 2px 3px $bg-color;
+        }
+
+
+    }
+
+    .about-section {
+        height: $section-height;
+        background: #eee;
+
+        h2 {
+            color: $secondary;
+            font-size: 45px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 20px;
+        }
+    }
+
+    .contact-section {
+        height: $section-height;
+        background: #ffb74d;
+
+
+    }
+
 }
+
+
+
+
+
+
 
 
 
@@ -39,42 +66,23 @@ p{
 
     border-radius: 5px;
     border-width: 4px;
-
     background-color: #e6e6e6;
+
     .panel-body{
 
+       padding-top: 40px;
+
+       p{
+            margin: 10px 0px 10px 0px;
+            font-weight: 700;
+        }
+
     }
-}
 
-
-
-
- 
-.btn {
-    //margin: 10px;
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 550;
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: black;
-    background: $secondary;
-
-      &:hover {
+    p{
+        margin: 10px 0px 10px 15px;
         color: black;
-        background-color:$secondary-pale;
+        font-weight: 700;
+    }
 
-      }
-      &:focus {
-        color: black;
-        background-color: $secondary-dark;
-
-      }
-      &:active {
-                color: black;
-        background-color: $secondary-dark;
-
-      }
 }
-

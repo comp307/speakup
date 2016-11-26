@@ -14,7 +14,7 @@ var config = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()        
+        new webpack.NoErrorsPlugin()
     ],
     module: {
         loaders: [
@@ -26,13 +26,17 @@ var config = {
             {
                 test: /\.scss$/,
                 loaders: [
-                    'style', 
-                    'css?sourceMap', 
-                    'sass?sourceMap'                    
+                    'style',
+                    'css',
+                    'sass?sourceMap'
                 ]
+            },
+            {
+                test: /\.jpg$/,
+                loader: "file-loader"
             }
         ]
-    },   
+    },
     stats: {
         errorDetails: true
     }

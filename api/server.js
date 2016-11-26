@@ -1,30 +1,90 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
-var messages = {};
+const jwt = require('jsonwebtoken'); // create and verify tokens
+const config = require('./config');
+const User = require('./models/user');
 
-app.get('/users', function(req, res){
-  res.sendfile('../index.html');
+const port = process.env.PORT || 8080;
+let streamCounter = 0; // Todo: Generate unique stream instead
+
+mongoose.connect(config.database);
+
+// create variable superSecret and set it to config.secret
+app.set('superSecret', config.secret);
+
+// use body parser so we can get info from POST and/or URL parameters
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(morgan('dev')); // logs requests into console
+app.use(cors());
+
+
+// TO-DO:Check against hash of the user
+app.post('/api/auth', function(req, res) {
+  // If username is in database and his password matches
+  // with the one in database then send webtoken
+  User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  }, function(err, user) {
+    if (err) throw err;
+
+    if (!user) {
+      res.json({
+        success: false,
+        message: 'Wrong username or password!',
+      });
+    } else {
+      let token = jwt.sign(user, app.get('superSecret'), {expiresIn: '1h'});
+      let streamID = req.body.stream_id;
+      if (!streamID) {
+        streamCounter++;
+        streamID = streamCounter;
+      }
+      res.json({
+        success: true,
+        message: 'Enjoy your token!',
+        token: token,
+        streamID: streamID,
+      });
+    }
+  });
 });
 
-// app.use("/styles", express.static('../styles'));
+// TO-DO: Hash userpassword register
+app.post('/api/reg', function(req, res) {
+  let userModel = new User({
+    email: req.body.email,
+    password: req.body.password,
+  });
 
-io.on('connection', function(socket) {
+  // If user is not in the database register him
+  User.findOne({
+    email: req.body.email,
+  }, function(err, user) {
+    if (err) throw error;
 
-
-    console.log('a user connected');
-    socket.emit('welcome', 'hi from the server');
-
-    socket.on('newMessage', function(msg) {
-        console.log(msg);
-        io.sockets.emit('newMessage', msg);        
-    });
+    if (user) {
+      res.json({success: false, message: 'Username already exists'});
+    } else {
+      userModel.save(function(err) {
+        if (err) throw err;
+        console.log('User saved successfully');
+        res.json({
+          success: true,
+          message: 'User is registered',
+        });
+      });
+    }
+  });
 });
 
+let server = app.listen(port);
+console.log('Server runs at http:' + port);
 
-
-http.listen(3333, function(){
-  console.log('listening on *:3333');
-});
+require('./sockets.js').socket(server);

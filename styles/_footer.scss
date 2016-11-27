@@ -2,9 +2,9 @@
 .footer {
     height: 140px;
     background-color: $bg-color;
+    @include vertical-align;
 
     p{
-        padding-top: 60px;
         color: #777777;
     }
 }

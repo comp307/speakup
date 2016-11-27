@@ -1,1 +1,21 @@
 @import "styles/variables";
+
+.create-page{
+    height: 800px;
+    @include vertical-align;
+
+    h2 {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    p{
+        margin-top: 20px;
+    }
+
+    .col-md-4{
+        margin-top: -40px;
+    }
+
+
+}
+

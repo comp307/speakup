@@ -1,1 +1,11 @@
 @import "styles/variables";
+
+
+.register-page{
+    height: 800px;
+    @include vertical-align;
+
+            h2{
+               font-family: 'Poppins', sans-serif;
+            }
+}

@@ -1,8 +1,6 @@
 @import "styles/variables";
 
 
-
-
 .navbar{
     background-color: $bg-color;
     font-family: 'Open Sans', sans-serif;
@@ -10,18 +8,24 @@
     margin: 0;
     border-radius: 0px;
 
+    i{
+      color: $primary;
+      font-size: 66px;
+    }
+
+    h1{
+        font-size: 66px;
+        font-family: 'Lobster', cursive;
+        padding-top: 5px;
+        color: $primary;
+        margin-bottom: 0px;
+        margin-top: 0px;
+
+    }
+
 }
 
 
- h1{
-    font-size: 66px;
-    font-family: 'Lobster', cursive;
-    padding-top: 5px;
-    color: $primary;
-    margin-bottom: 0px;
-    margin-top: 0px;
-
-}
 
 
 
@@ -31,23 +35,23 @@
   padding-left: 20px;
 
     li a {
-      color: #777777;
+      color: $bg-color-accent;
       text-transform: uppercase;
       font-size: 16px;
 
       &:hover {
         color: $primary;
-        background-color:#777777;
+        background-color:$bg-color-accent;
 
       }
       &:focus {
         color: $primary;
-        background-color: #777777;
+        background-color: $bg-color-accent;
 
       }
       &:active {
                 color: $primary;
-        background-color: #777777;
+        background-color: $bg-color-accent;
 
       }
 

@@ -18,6 +18,7 @@ class Header extends Component {
 
   }
 
+
   logout() {
     // Clear session
     this.props.onSessionUpdate(null);
@@ -37,12 +38,12 @@ class Header extends Component {
         <div className="navbar">
           <div className="container">
           <div className="navbar-header">
-              <h1>Speakup <small>boiii</small> </h1>
+              <h1>Speakup <small>{this.props.subTitle}</small> </h1>
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/">About</Link></li>
-              <li><Link to="/">Contact</Link></li>
+              <li><Link to="/#about">About</Link></li> 
+              <li><Link to="/#contact">Contact</Link></li>
               {dynamicButton}
             </ul>
           </div>

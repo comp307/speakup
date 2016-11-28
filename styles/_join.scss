@@ -1,19 +1,21 @@
 @import "styles/variables";
 
 
-h2{
-    margin-bottom: 30px;
-}
+
 .form-group-lg{
     margin-bottom: 20px;
-
-}
-.btn-block{
-    background-color: $secondary;
-    margin-top: 30px;
-    text-transform: none;
 }
 
-// .row{
-//     margin: 100px 0px 100px 0px;
-// }
+.join-page{
+    height: 800px;
+    @include vertical-align;
+
+    h2{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    p{
+        margin-top: 20px;
+    }
+
+}

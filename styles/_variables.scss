@@ -1,14 +1,17 @@
 //This file contains all SASS variables that each style file may use
 
 $bg-color: #333;
-
-$header-footer-height: 160px;
+$bg-color-accent: #777777;
 $primary: #66bb6a;
-$secondary: #ffb74d;
-$secondary-pale: #ffcc80;
-$secondary-dark: #fff176;
+$secondary:#f0ad4e;
+$secondary-2: #eea236;
+$secondary-3: #cc7a00;
+$off-white: #eee;
 
-@mixin no_margin_or_padding{
-    padding: 0;
-    margin:0;
+@mixin vertical-align
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+

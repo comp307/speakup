@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 import '../styles/_join.scss';
 
 /**
@@ -90,7 +91,7 @@ class Join extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="join-page">
            <div className="container">
             <div className="row">
                 <div className="col-md-4 col-md-offset-4">
@@ -105,6 +106,7 @@ class Join extends React.Component {
                       <input type="text" className="form-control" name="stream_id" placeholder="Stream ID" onChange={this.onUserInput} required />
                     </div>
                     <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Submit</button>
+                    <p>Don't have an account? <Link to="/register">Register here.</Link></p>
                 </div>
             </div>
 

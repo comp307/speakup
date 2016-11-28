@@ -1,94 +1,132 @@
 @import "styles/variables";
 
 
-$section-height: 400px;
+$section-height: 500px;
 
 .main-page {
 
-    .jumbotron {
-        background: none;
+
+    h2{
+        text-align: center;
+        font-size: 45px;
+        font-family: 'Lobster', cursive;
+        margin-bottom: 30px;
     }
 
     .login-section {
         background: url('~../images/bg1.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        height: 600px;
+        height: 700px;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include vertical-align;
 
         .login-box {
-            padding: 70px 50px;
+            padding: 50px 50px;
             background: rgba(#000, 0.6);
-            color: #fff;
-            border: 1px solid rgba(255, 183, 77, 0.42);
+            color: $off-white;
             box-shadow: 1px 2px 3px $bg-color;
+
+            h3{
+                margin: 0 0 10px 0;
+                font-family: 'Lobster', cursive;
+                font-size: 32px;
+                text-align: center;
+            }
+
+            p{
+                margin-top: 10px;
+                margin-bottom: -10px;
+                font-weight: bold;
+            }
+
+            .padding-v10 {
+                font-weight: bold;
+            }
+
+            .panel{
+
+                border-radius: 5px;
+                border-width: 4px;
+                background-color: #e6e6e6;
+
+                .panel-body{
+
+                    padding-top: 40px;
+
+                    p{
+                        margin: 10px 0px 10px 0px;
+                        font-weight: 700;
+                    }
+
+                }
+
+        p{
+            margin: 10px 0px 10px 15px;
+            color: black;
+            font-weight: 700;
+        }
+
+    }
+
+
         }
 
 
     }
 
     .about-section {
-        height: $section-height;
+        height: %100;
         background: #eee;
-
-        h2 {
-            color: $secondary;
-            font-size: 45px;
-        }
+        margin-bottom: 20px;
+       
+            h3 {
+                color: $secondary;
+                font-size: 28px;
+                text-align: left;
+                font-family: 'Poppins', sans-serif;
+            }
 
         p {
             margin: 0;
             font-size: 20px;
         }
+
+        .clear{
+            clear:both;
+        }
     }
 
     .contact-section {
         height: $section-height;
-        background: #ffb74d;
+        background: $primary;
+        text-align: center;
+        color: $bg-color;
+    
+        .centre-circle{
+            text-align: center;
+            @include vertical-align;
 
+            i{
+                font-size: 180px;
+            }
 
-    }
-
-}
-
-
-
-
-
-
-
-
-
-.panel{
-
-    border-radius: 5px;
-    border-width: 4px;
-    background-color: #e6e6e6;
-
-    .panel-body{
-
-       padding-top: 40px;
-
-       p{
-            margin: 10px 0px 10px 0px;
-            font-weight: 700;
+            .circle{
+                background-color: $off-white;
+                width: 260px;
+                height: 260px;
+                border-radius: 130px;
+                @include vertical-align;
+            
+            }
         }
 
-    }
-
-    p{
-        margin: 10px 0px 10px 15px;
-        color: black;
-        font-weight: 700;
+        .creater-info{
+            margin-top: 12px;
+        }
     }
 
 }
-
-
-
 
 
 

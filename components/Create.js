@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 import '../styles/_create.scss';
 
 /**
@@ -90,7 +91,7 @@ class Create extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="create-page">
         <div className="container">
             <div className="row">
                 <div className="col-md-4 col-md-offset-4">
@@ -102,11 +103,10 @@ class Create extends React.Component {
                       <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} required/>
                     </div>
                     <button type="button" className="btn btn-speakup">Submit</button>
+                    <p>Don't have an account? <Link to="/register">Register here.</Link></p>
                 </div>
             </div>
-
           </div>
-
       </div>
     );
   }

@@ -24,6 +24,8 @@ class Register extends React.Component {
       errorMessage: ""
     }
 
+    
+
   }
 
 
@@ -115,7 +117,11 @@ class Register extends React.Component {
       confirmPassClass += " has-error";
     }
 
+    // Register calls App function to change Header page title.
+    //this.props.route.onSubTitle;
+
     return (
+      <div className="register-page">
       <div className="container">
         <div className="row">
             <div className="col-md-4 col-md-offset-4">
@@ -137,9 +143,10 @@ class Register extends React.Component {
                   />
                   <span id="password-help" className="help-block">{errorMessage}</span>
                 </div>
-                <button type="button" className="btn btn-lg btn-block" onClick={this.handleSubmit}>Submit</button>
+                <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Submit</button>
             </div>
         </div>
+      </div>
       </div>
     );
   }

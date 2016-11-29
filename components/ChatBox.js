@@ -101,7 +101,7 @@ class ChatBox extends Component {
             <span className="message__user">{message.user}</span>
             <span className="message__time">{messageTime}</span>
           </div>
-          {message.message}
+          <div className="message__text">{message.message}</div>
         </div>
       );
     });
@@ -120,13 +120,13 @@ class ChatBox extends Component {
             className="form-control"
             onKeyUp={this.sendMessage}
             />
-          <div className="input-group-addon">
+          <div className="input-group-btn">
             <button
               id="btn-send"
               className="btn btn-speakup btn-send"
               onClick={this.sendMessage}
             >
-              Send
+            <i className="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
           </div>
         </div>

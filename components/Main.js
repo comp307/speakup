@@ -71,33 +71,37 @@ class Main extends React.Component {
                   <div className="col-sm-12 col-md-4">
                     <div className="centre-circle">
                       <div className="circle">
-                        <i className="fa fa-hand-paper-o" aria-hidden="true" ></i>
+                        <a href="https://github.com/Bobrinik" target="_blank">
+                          <i className="fa fa-hand-paper-o" aria-hidden="true" ></i>
+                        </a>
                       </div>
                     </div>
                     <div className="creater-info">
-                      <p>Maksim Bober</p><p><i className="fa fa-envelope" aria-hidden="true"></i> maksim.bober@mail.mcgill.ca</p>
+                      <p><a href="https://github.com/Bobrinik" target="_blank">Maksim Bober</a></p>
                     </div>
                   </div>
                   <div className="col-sm-12 col-md-4">
                     <div className="centre-circle">
                       <div className="circle">
-                        <i className="fa fa-hand-peace-o" aria-hidden="true"></i>
+                        <a href="https://github.com/alisterdev" target="_blank">
+                          <i className="fa fa-hand-peace-o" aria-hidden="true"></i>
+                        </a>
                       </div>
                     </div>
                     <div className="creater-info">
-                      <p>Alex Ilea</p>
-                      <p><i className="fa fa-envelope" aria-hidden="true"></i> alexander.ilea@mail.mcgill.ca</p>
+                      <p><a href="https://github.com/alisterdev" target="_blank">Alex Ilea</a></p>
                     </div>
                   </div>
                   <div className="col-sm-12 col-md-4">
                     <div className="centre-circle">
                       <div className="circle">
-                        <i className="fa fa-hand-rock-o" aria-hidden="true"></i>
+                        <a href="https://github.com/invalidsword" target="_blank">
+                          <i className="fa fa-hand-rock-o" aria-hidden="true"></i>
+                        </a>
                       </div>
                     </div>
                     <div className="creater-info">
-                      <p>Dale Mowbray</p>
-                      <p><i className="fa fa-envelope" aria-hidden="true"></i> dale.mowbray@mail.mcgill.ca</p>
+                      <p><a href="https://github.com/invalidsword" target="_blank">Dale Mowbray</a></p>
                     </div>
                   </div>
                 </div>

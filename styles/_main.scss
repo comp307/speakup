@@ -115,6 +115,12 @@ $section-height: 500px;
     text-align: center;
     color: $bg-color;
 
+    a {
+        color: $bg-color;
+        font-size: 21px;
+        font-family: 'Raleway';
+    }
+
     .centre-circle {
       text-align: center;
       i { font-size: 180px; }

@@ -54,7 +54,7 @@ class Main extends React.Component {
                       join the stream by inputting its identification number. Once joined, inquirers may write messages to the question stream for all to view.
                       The etc..
                     </p>
-                    <h3>Multi-purposeness</h3>
+                    <h3>Multi-purposeful</h3>
                     <p>
                       Anyone can start a lecture stream. Etc...
                     </p>

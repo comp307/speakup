@@ -1,17 +1,31 @@
+@import "styles/variables";
+
+.chat-page {
+  @include vertical-align;
+  @include fill-screen;
+  margin: 0;
+}
+
 .chat-wrapper {
     background-color: #f5f5f5;
     margin: 30px 0;
     padding: 0 10px;
-    min-height: 500px;
+    min-height: 200px;
     border: 1px solid #aaa;
     border-radius: 3px;
+    min-width: 300px;
 }
 
 .chat-box {
     min-height: 500px;
     position: relative;
-    border-left: 1px solid #aaa;
+    border-top: 1px solid #aaa;
     padding: 5px;
+
+    @media(min-width: 768px) {
+      border-left: 1px solid #aaa;
+      border-top: 0;
+    }
 }
 
 // Chatbox.js
@@ -22,8 +36,6 @@
 
   .message {
     padding: 10px;
-    /*margin: 5px 0;
-    background: rgba(204, 204, 204, 0.25);*/
 
     .message__meta {
         padding: 5px 0;
@@ -50,11 +62,19 @@
     padding: 0;
   }
 
+  .form-control:focus {
+    border-color: $secondary;
+  }
+
   .btn-send {
     margin: 0;
     padding: 5px 30px;
     border: 0;
     outline: none !important;
+    font-size: 16px;
+    letter-spacing: 0;
+    border-radius: 0 4px 4px 0;
+    text-transform: initial;
   }
 
 }
@@ -63,5 +83,25 @@
 // UserList.js
 .users-list {
     background: #f5f5f5;
+    h3 {
+      text-align: center;
+      font-family: 'Raleway';
+      font-size: 20px;
+      width: 100%;
+    }
+    ul {
+      padding-left: 10px;
+
+      li {
+        list-style: none;
+        padding: 5px 0;
+      }
+
+      .glyphicon {
+        color: $primary;
+      }
+
+    }
+
 }
 

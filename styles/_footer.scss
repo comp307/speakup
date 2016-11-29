@@ -1,10 +1,11 @@
 @import "styles/variables";
 .footer {
-    height: 140px;
+    height: $footer-height;
     background-color: $bg-color;
     @include vertical-align;
 
-    p{
-        color: #777777;
+    p {
+      color: #777777;
+      margin: 0;
     }
 }

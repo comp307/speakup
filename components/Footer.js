@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import '../styles/_footer.scss';
 
 /**
@@ -6,14 +6,15 @@ import '../styles/_footer.scss';
  * Used to display the footer section on all pages of the application
  */
 class Footer extends Component {
-    render () {
+    render() {
         return (
             <footer className="footer">
                 <div className="container text-center">
-                   <p> Copyright <span className="glyphicon glyphicon-copyright-mark"></span> Speakup 2016</p>
+                   <p>&copy; 2016 <a target="_blank" href="https://github.com/comp307/speakup">Speakup</a> | All rights reserved
+                   </p>
                 </div>
             </footer>
-        )
+        );
     }
 }
 

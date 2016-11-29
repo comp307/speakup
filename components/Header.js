@@ -14,10 +14,18 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
     this.logout = this.logout.bind(this);
+    this.state = {
+      dropdownShown: false
+    };
 
   }
 
+  handleClick() {
+    let dropdownShown = !this.state.dropdownShown;
+    this.setState({dropdownShown});
+  }
 
   logout() {
     // Clear session
@@ -26,26 +34,24 @@ class Header extends Component {
 
   render() {
 
-    var dynamicButton = "";
+    let dynamicButton = <Link to="/register">Register</Link>;
+    // If logged in, replace register btn, by logout btn
     if (this.props.session) {
-      dynamicButton = <li><a href="#" onClick={this.logout}>Logout</a></li>;
-    } else {
-      dynamicButton = <li><Link to="/register">Register</Link></li>;
+      dynamicButton = <a href="#" onClick={this.logout}>Logout</a>;
     }
 
     return (
       <header>
-        <div className="navbar">
+        <div className="navbar navbar-fixed-top" role="navigation">
           <div className="container">
-          <div className="navbar-header">
-              <h1>Speakup <small>{this.props.subTitle}</small> </h1>
+            <div className="navbar-header">
+              <Link className="navbar-brand" to="/">
+                <h1>Speakup</h1>
+              </Link>
+              <ul className="nav navbar-nav navbar-right">
+                <li>{dynamicButton}</li>
+              </ul>
             </div>
-            <ul className="nav navbar-nav">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/#about">About</Link></li> 
-              <li><Link to="/#contact">Contact</Link></li>
-              {dynamicButton}
-            </ul>
           </div>
         </div>
       </header>
@@ -54,3 +60,18 @@ class Header extends Component {
 }
 
 export default Header;
+
+  //  <header>
+  //       <nav className="navbar">
+  //         <div className="container">
+  //           <div className="navbar-header">
+  //             <div className="collapse navbar-collapse">
+  //               <Link className="navbar-brand" to="/"><h1>Speakup</h1></Link>
+  //               <ul className="nav navbar-nav navbar-right">
+  //                 <li>{dynamicButton}</li>
+  //               </ul>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </nav>
+  //     </header>

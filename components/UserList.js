@@ -24,15 +24,15 @@ class UserList extends Component {
   }
 
   render() {
-
+    const userCount = this.state.users.length;
     const users = this.state.users.map((user, key) => {
-      return (<li key={key}>{user}</li>);
+      return (<li key={key}><i className="glyphicon glyphicon-user"/> {user}</li>);
     });
 
     return (
       <div className="users-list">
         <div className="users-list__header">
-          <h3>10 Users Online</h3>
+          <h3>Connected Users: {userCount}</h3>
           <ul>
             {users}
           </ul>

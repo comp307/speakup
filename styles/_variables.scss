@@ -8,6 +8,9 @@ $secondary-2: #eea236;
 $secondary-3: #cc7a00;
 $off-white: #eee;
 
+$header-height: 100px;
+$footer-height: 50px;
+
 @mixin vertical-align
 {
     display: flex;
@@ -15,3 +18,8 @@ $off-white: #eee;
     justify-content: center;
 }
 
+@mixin fill-screen
+{
+    min-height: 300px;
+    height: calc(100vh - (#{$header-height} + #{$footer-height}));
+}

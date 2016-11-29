@@ -18,11 +18,22 @@ $section-height: 500px;
         background-size: cover;
         background-repeat: no-repeat;
         height: 700px;
+        height: calc(100vh - 100px);
         width: 100%;
+        border-bottom: 3px solid $secondary;
+        border-top: 3px solid $secondary;
         @include vertical-align;
 
         .login-box {
-            padding: 50px 50px;
+            padding: 30px 50px 50px 50px;
+            border: 1px solid #ccc;
+            max-width: 390px;
+            margin: 0 auto;
+            border-radius: 4px;
+            min-width: 320px;
+            box-shadow: #ddd 3px 3px 4px;
+
+            border-color: #222;
             background: rgba(#000, 0.6);
             color: $off-white;
             box-shadow: 1px 2px 3px $bg-color;
@@ -75,57 +86,54 @@ $section-height: 500px;
 
     }
 
-    .about-section {
-        height: %100;
-        background: #eee;
-        margin-bottom: 20px;
-       
-            h3 {
-                color: $secondary;
-                font-size: 28px;
-                text-align: left;
-                font-family: 'Poppins', sans-serif;
-            }
+.about-section {
+  background: #eee;
+  padding: 20px 0 60px 0;
 
-        p {
-            margin: 0;
-            font-size: 20px;
-        }
+  .about-info {
+    padding: 0 50px;
+  }
 
-        .clear{
-            clear:both;
-        }
+  h3 {
+      color: #f0ad4e;
+      font-size: 24px;
+      text-align: left;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -1px;
+  }
+
+  p {
+      margin: 0;
+      font-size: 20px;
+  }
+}
+
+  .contact-section {
+    padding: 20px 0 60px 0;
+    background: $primary;
+    text-align: center;
+    color: $bg-color;
+
+    .centre-circle {
+      text-align: center;
+      i { font-size: 180px; }
+
+      .circle{
+          background-color: $off-white;
+          width: 260px;
+          height: 260px;
+          margin: 0 auto;
+          border-radius: 50%;
+          @include vertical-align;
+
+      }
     }
 
-    .contact-section {
-        height: $section-height;
-        background: $primary;
-        text-align: center;
-        color: $bg-color;
-    
-        .centre-circle{
-            text-align: center;
-            @include vertical-align;
-
-            i{
-                font-size: 180px;
-            }
-
-            .circle{
-                background-color: $off-white;
-                width: 260px;
-                height: 260px;
-                border-radius: 130px;
-                @include vertical-align;
-            
-            }
-        }
-
-        .creater-info{
-            margin-top: 12px;
-        }
+    .creater-info{
+      margin-top: 12px;
     }
-
+  }
 }
 
 

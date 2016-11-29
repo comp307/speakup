@@ -22,13 +22,14 @@
     border: 10px;
     font-weight: 700;
     font-size: 18px;
-    
     letter-spacing: 1px;
     width: 100%;
     text-transform: uppercase;
     color: black;
     background: $secondary;
     border-color: $secondary-2;
+    outline: 0 !important;
+    transition: all 400ms ease-out;
 
     &:hover {
         color: black;
@@ -46,8 +47,31 @@
     }
 }
 
+a {
+    color: $primary;
+    &:hover, &:active {
+        color: opacify($primary, 0.5);
+    }
+}
+
+.sweet-alert {
+    button.confirm {
+        @extend .btn-speakup;
+        background: $secondary !important;
+    }
+}
+
 
 .page-content {
-    min-height: 400px;
-   font-family: 'Open-Sans', sans-serif;
+    font-family: 'Open-Sans', sans-serif;
+}
+
+.form-box {
+    padding: 30px 50px 50px 50px;
+    border: 1px solid #ccc;
+    max-width: 390px;
+    margin: 0 auto;
+    border-radius: 4px;
+    min-width: 320px;
+    box-shadow: #ddd 3px 3px 4px;
 }

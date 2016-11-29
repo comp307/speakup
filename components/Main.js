@@ -24,7 +24,6 @@ class Main extends React.Component {
                   <div className="login-box">
                   <h3>Select an Option</h3>
                     <div className="panel-body  text-center">
-                    
                       <Link to="/create" className="btn btn-speakup" role="button">Create Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
                       <div className="padding-v10">OR</div>
                       <Link to="/join" className="btn btn-speakup" role="button">Join Lecture <span className="glyphicon glyphicon-share-alt"></span></Link>
@@ -45,12 +44,13 @@ class Main extends React.Component {
                     </p>
                       <h3>Ask questions anonymously</h3>
                     <p>
-                      Many classroom settings can be loud or intimidating making it difficult to participate in class. <span className="speakup-title">Speakup</span> provides students with a direct line of communication to the professor
+                      Many classroom settings can be loud or intimidating making it difficult to participate in class. <br/>
+                      <b>Speakup</b> provides students with a direct line of communication to the professor
                       using a chat room interface. All participating users may pose questions or provide input in total anonymity.
                     </p>
                     <h3>How it works</h3>
                     <p>
-                      Upon selecting the create lecture option, a new lecture stream is created automatically. Students 
+                      Upon selecting the create lecture option, a new lecture stream is created automatically. Students
                       join the stream by inputting its identification number. Once joined, inquirers may write messages to the question stream for all to view.
                       The etc..
                     </p>
@@ -58,18 +58,17 @@ class Main extends React.Component {
                     <p>
                       Anyone can start a lecture stream. Etc...
                     </p>
-                    <div className="clear" />
                 </section>
                 </div>
               </section>
             </div>
 
             <div className="row">
-              <section className="contact-section">    
+              <section className="contact-section">
                 <a name="contact"></a>
                 <div className="container">
-                              <h2>Contact Us</h2>
-                  <div className="col-sm-4">
+                    <h2>Contact Us</h2>
+                  <div className="col-sm-12 col-md-4">
                     <div className="centre-circle">
                       <div className="circle">
                         <i className="fa fa-hand-paper-o" aria-hidden="true" ></i>
@@ -79,8 +78,8 @@ class Main extends React.Component {
                       <p>Maksim Bober</p><p><i className="fa fa-envelope" aria-hidden="true"></i> maksim.bober@mail.mcgill.ca</p>
                     </div>
                   </div>
-                  <div className="col-sm-4">
-                    <div className="centre-circle">                    
+                  <div className="col-sm-12 col-md-4">
+                    <div className="centre-circle">
                       <div className="circle">
                         <i className="fa fa-hand-peace-o" aria-hidden="true"></i>
                       </div>
@@ -90,8 +89,8 @@ class Main extends React.Component {
                       <p><i className="fa fa-envelope" aria-hidden="true"></i> alexander.ilea@mail.mcgill.ca</p>
                     </div>
                   </div>
-                  <div className="col-sm-4">
-                    <div className="centre-circle"> 
+                  <div className="col-sm-12 col-md-4">
+                    <div className="centre-circle">
                       <div className="circle">
                         <i className="fa fa-hand-rock-o" aria-hidden="true"></i>
                       </div>

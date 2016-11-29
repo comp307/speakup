@@ -22,7 +22,7 @@ class Chat extends React.Component {
     var session = this.props.sessionData;
     if (session && session.user && session.streamID) {
       // Set up sockets
-      var params = {query: "user=" + session.user + "&streamID=" + session.streamID};
+      var params = { query: "user=" + session.user + "&streamID=" + session.streamID };
       this.socket = io('http://localhost:8080', params);
     } else {
       console.error("Unable to connect to server at http://localhost:8080!");
@@ -48,23 +48,25 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="chat-wrapper">
-        <div className="row">
-          <div className="col-sm-3 col-md-3">
-            <UserList
-              socket={this.socket}
-              sessionData={this.props.sessionData}
-            />
+      <div className="chat-page">
+        <div className="container">
+          <div className="chat-wrapper">
+            <div className="row">
+              <div className="col-sm-3 col-md-3">
+                <UserList
+                  socket={this.socket}
+                  sessionData={this.props.sessionData}
+                  />
+              </div>
+              <div className="col-sm-9 col-md-9">
+                <ChatBox
+                  user={this.props.sessionData.user}
+                  socket={this.socket}
+                  sessionData={this.props.sessionData}
+                  />
+              </div>
+            </div>
           </div>
-          <div className="col-sm-9 col-md-9">
-            <ChatBox
-              user={this.props.sessionData.user}
-              socket={this.socket}
-              sessionData={this.props.sessionData}
-            />
-          </div>
-        </div>
         </div>
       </div>
     );

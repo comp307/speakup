@@ -17,7 +17,7 @@ class ChatBox extends Component {
     // Set up initial state
     this.state = {
       messages: [],
-      message: ''
+      message: '',
     };
   }
 
@@ -123,7 +123,7 @@ class ChatBox extends Component {
           <div className="input-group-addon">
             <button
               id="btn-send"
-              className="btn btn-default btn-send"
+              className="btn btn-speakup btn-send"
               onClick={this.sendMessage}
             >
               Send

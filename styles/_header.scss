@@ -1,59 +1,61 @@
 @import "styles/variables";
 
 
-.navbar{
-    background-color: $bg-color;
+header {
+  height: $header-height;
+  background-color: #222;
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.navbar {
+    background-color: rgba($bg-color, 0.9);
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     margin: 0;
     border-radius: 0px;
 
-    i{
-      color: $primary;
-      font-size: 66px;
-    }
-
-    h1{
-        font-size: 66px;
+    h1 {
+        font-size: 60px;
         font-family: 'Lobster', cursive;
-        padding-top: 5px;
+        padding: 0;
+        margin: 0;
         color: $primary;
-        margin-bottom: 0px;
-        margin-top: 0px;
-
     }
-
 }
 
-
-
-
+.navbar-header {
+    width: 100%;
+    min-width: 320px;
+}
 
 .navbar-nav {
-  //float: right;
-  padding-top: 45px;
-  padding-left: 20px;
+  li {
+    padding: 25px 0;
 
-    li a {
+    a {
       color: $bg-color-accent;
       text-transform: uppercase;
       font-size: 16px;
+      transition: all 400ms ease-out;
 
       &:hover {
         color: $primary;
-        background-color:$bg-color-accent;
-
+        background: none;
       }
       &:focus {
         color: $primary;
-        background-color: $bg-color-accent;
-
+        background: none;
       }
       &:active {
-                color: $primary;
-        background-color: $bg-color-accent;
-
+        color: $primary;
+        background: none;
       }
+    }
+  }
 
+  .navbar-brand {
+    height: $header-height;
   }
 }

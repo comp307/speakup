@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import config from '../api/config.js';
+
 import '../styles/_join.scss';
+
 
 /**
  * Register component.
@@ -50,7 +53,7 @@ class Join extends React.Component {
     let errors = this.state.errors;
 
     if (!value) {
-      errors[formElement] = 'The input field is required!';
+      errors[formElement] = 'The ' + formElement + ' is required!';
       isValid = false;
     } else {
       errors[formElement] = false;
@@ -62,9 +65,9 @@ class Join extends React.Component {
   }
 
   handleSubmit() {
-    let url = 'http://localhost:8080/api/auth/';
+    let url = config.api + '/api/auth/';
     let formData = this.state.formData;
-    let errors = this.state.errors;
+    let hasErrors = false;
 
       // Make sure all fields are filled
     if (Object.keys(formData).length < 3) {
@@ -115,8 +118,11 @@ class Join extends React.Component {
             router.push(redirect);
           }
         } else {
-          let errors = this.state.errors;
-          errors['name'] = response.message;
+          swal({
+            'title': 'Oops!',
+            'text': response.message,
+            'type': 'error',
+          });
         }
       }
     }.bind(this);
@@ -127,7 +133,7 @@ class Join extends React.Component {
   }
 
   render() {
-     let defaultClass = 'form-group-lg';
+    let defaultClass = 'form-group-lg';
     let errors = this.state.errors;
     let fieldClasses = {};
 

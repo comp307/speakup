@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import config from '../api/config.js';
+
 import '../styles/_register.scss';
 
 /**
@@ -55,7 +57,7 @@ class Register extends React.Component {
     let errors = this.state.errors;
 
     if (!value) {
-      errors[formElement] = "The input field is required!";
+      errors[formElement] = 'The ' + formElement + ' is required!';
       isValid = false;
     } else {
       errors[formElement] = false;
@@ -93,13 +95,12 @@ class Register extends React.Component {
     }
 
     this.setState({ errors });
-
     return isValid;
   }
 
   handleSubmit() {
 
-    let url = 'http://localhost:8080/api/reg/'
+    let url = config.api + '/api/reg/';
     let formData = this.state.formData;
     let errors = this.state.errors;
     let hasErrors = false;
@@ -180,9 +181,6 @@ class Register extends React.Component {
         fieldClasses[key] = defaultClass;
       }
     });
-
-    // Register calls App function to change Header page title.
-    //this.props.route.onSubTitle;
 
     return (
       <div className="register-page">

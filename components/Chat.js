@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client';
+import config from '../api/config.js';
 
 import UserList from './UserList';
 import ChatBox from './ChatBox';
@@ -23,7 +24,7 @@ class Chat extends React.Component {
     if (session && session.user && session.streamID) {
       // Set up sockets
       var params = { query: "user=" + session.user + "&streamID=" + session.streamID };
-      this.socket = io('http://localhost:8080', params);
+      this.socket = io(config.api, params);
     } else {
       console.error("Unable to connect to server at http://localhost:8080!");
     }

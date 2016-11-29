@@ -29,20 +29,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    var sessionData = {
-      user: localStorage.getItem('user'),
-      streamID: localStorage.getItem('streamID'),
-      token: localStorage.getItem('token')
-    };
+    let sessionData;
 
-    
+    if (localStorage.getItem('user') ||
+        localStorage.getItem('streamID') ||
+        localStorage.getItem('token')) {
+      sessionData = {
+        user: localStorage.getItem('user'),
+        streamID: localStorage.getItem('streamID'),
+        token: localStorage.getItem('token')
+      };
+    }
 
     this.setSession = this.setSession.bind(this);
-    this.setPageTitle = this.setPageTitle.bind(this);
 
     this.state = {
       session: sessionData,
-      subTitle:"main"
     }
 
   }
@@ -67,18 +69,10 @@ class App extends React.Component {
     this.setState({session});
   }
 
-//change the page title in the header given what page is selected (doesn't work yet!)
-//this function would be passed to the child route of app as a route param. 
-  setPageTitle() {
-    this.setState({subTitle:'page title'});
-  }
-
-
-
   render() {
     return (
       <div className="page-wrapper">
-        <Header session={this.state.session} onSessionUpdate={this.setSession} subTitle={this.state.subTitle}/>
+        <Header session={this.state.session} onSessionUpdate={this.setSession}/>
         <div className="page-content">
           {this.props.children && React.cloneElement(this.props.children, {
             onSessionUpdate: this.setSession,
@@ -104,7 +98,7 @@ function requireAuth(nextState, replace) {
  * The router render App component declared above.
  * Then it checks for subroutes and decides which component
  * to render based on subroute URL.
- <Route path="*" component={Home}/> */// onSubTitle={this.setPageTitle}/>
+ */
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>

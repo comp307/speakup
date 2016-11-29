@@ -36,7 +36,7 @@ class Header extends Component {
 
     let dynamicButton = <Link to="/register">Register</Link>;
     // If logged in, replace register btn, by logout btn
-    if (this.props.session) {
+    if (this.props.session && this.props.session.user) {
       dynamicButton = <a href="#" onClick={this.logout}>Logout</a>;
     }
 
@@ -60,18 +60,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-  //  <header>
-  //       <nav className="navbar">
-  //         <div className="container">
-  //           <div className="navbar-header">
-  //             <div className="collapse navbar-collapse">
-  //               <Link className="navbar-brand" to="/"><h1>Speakup</h1></Link>
-  //               <ul className="nav navbar-nav navbar-right">
-  //                 <li>{dynamicButton}</li>
-  //               </ul>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </nav>
-  //     </header>

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import config from '../api/config.js';
+
 import '../styles/_create.scss';
 
 /**
@@ -17,7 +19,11 @@ class Create extends React.Component {
     this.state = {
       loginSuccess: false,
       formData: {},
-      errors: {},
+      errors: {
+        'email': false,
+        'password': false,
+        'stream_id': false,
+      },
     };
   }
 
@@ -30,15 +36,34 @@ class Create extends React.Component {
     let value = e.target.value;
     let formElement = e.target.name;
     let formData = this.state.formData;
+    let isValid = this.validateInput(formElement, value);
+
+    if (!isValid) {
+      return;
+    }
 
     formData[formElement] = value;
-    this.setState({
-      formData: formData,
-    });
+    this.setState({formData});
+  }
+
+  validateInput(formElement, value) {
+    let isValid = true;
+    let errors = this.state.errors;
+
+    if (!value) {
+      errors[formElement] = 'The ' + formElement + ' is required!';
+      isValid = false;
+    } else {
+      errors[formElement] = false;
+    }
+
+    this.setState({errors});
+
+    return isValid;
   }
 
   handleSubmit() {
-    let url = 'http://localhost:8080/api/auth/';
+    let url = config.api + '/api/auth/';
     let formData = this.state.formData;
 
     // Send AJAX request
@@ -65,8 +90,11 @@ class Create extends React.Component {
             router.push(redirect);
           }
         } else {
-          let errors = this.state.errors;
-          errors['name'] = response.message;
+          swal({
+            'title': 'Oops!',
+            'text': response.message,
+            'type': 'error',
+          });
         }
       }
     }.bind(this);
@@ -78,16 +106,36 @@ class Create extends React.Component {
 
 
   render() {
+
+    let defaultClass = 'form-group-lg';
+    let errors = this.state.errors;
+    let fieldClasses = {};
+
+    // Initilize field classes based on error state
+    Object.keys(errors).map(function(key) {
+      if (errors[key]) {
+        fieldClasses[key] = defaultClass + ' has-error';
+      } else {
+        fieldClasses[key] = defaultClass;
+      }
+    });
+
     return (
       <div className="create-page">
         <div className="container">
           <div className="form-box">
             <h2>Create Stream</h2>
-            <div className="form-group-lg">
-              <input type="email" className="form-control" name="email" placeholder="Email" onChange={this.onUserInput} required />
+            <div className={fieldClasses['email']}>
+              <input type="email" className="form-control" name="email" placeholder="Email" onBlur={this.onUserInput} />
+              <span id="email-help" className="help-block">
+                {errors['email']}
+              </span>
             </div>
-            <div className="form-group-lg">
-              <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.onUserInput} required />
+            <div className={fieldClasses['password']}>
+              <input type="password" className="form-control" name="password" placeholder="Password" onBlur={this.onUserInput} />
+              <span id="password-help" className="help-block">
+                {errors['password']}
+              </span>
             </div>
             <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Create Stream</button>
             <p>Don't have an account? <Link to="/register">Register here.</Link></p>

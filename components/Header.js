@@ -46,7 +46,7 @@ class Header extends Component {
           <div className="container">
             <div className="navbar-header">
               <Link className="navbar-brand" to="/">
-                <h1>Speakup</h1>
+                <h1><i className="fa fa-paper-plane" aria-hidden="true"></i> Speakup</h1>
               </Link>
               <ul className="nav navbar-nav navbar-right">
                 <li>{dynamicButton}</li>

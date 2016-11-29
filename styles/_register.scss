@@ -2,10 +2,10 @@
 
 
 .register-page{
-    height: 800px;
     @include vertical-align;
+    @include fill-screen;
 
-            h2{
-               font-family: 'Poppins', sans-serif;
-            }
+    h2 {
+        font-family: 'Poppins', sans-serif;
+    }
 }

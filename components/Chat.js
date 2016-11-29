@@ -53,13 +53,13 @@ class Chat extends React.Component {
         <div className="container">
           <div className="chat-wrapper">
             <div className="row">
-              <div className="col-sm-3 col-md-3">
+              <div className="col-sm-2 col-md-2">
                 <UserList
                   socket={this.socket}
                   sessionData={this.props.sessionData}
                   />
               </div>
-              <div className="col-sm-9 col-md-9">
+              <div className="col-sm-10 col-md-10">
                 <ChatBox
                   user={this.props.sessionData.user}
                   socket={this.socket}

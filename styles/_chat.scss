@@ -1,5 +1,12 @@
 @import "styles/variables";
 
+
+.chat-title {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Raleway';
+}
+
 .chat-page {
   @include vertical-align;
   @include fill-screen;
@@ -9,16 +16,11 @@
 .chat-wrapper {
     background-color: #fff;
     margin: 0;
-    padding: 0 5px;
     min-height: 560px;
- //   border: 2px solid #ccc;
     border-radius: 8px;
     min-width: 300px;
-
-    .col-md-10{
-      padding-left: 0;
-    }
-    
+    border: 1px solid #f5f5f5;
+    box-shadow: #eee 1px 1px 2px;
 }
 
 
@@ -27,6 +29,7 @@
     position: relative;
     border-top: 1px solid #f5f5f5;
     padding: 8px 5px 0px 8px;
+    margin-left: -15px;
 
     @media(min-width: 768px) {
      // border-left: 2px solid #ccc;
@@ -70,6 +73,7 @@
   margin-bottom: 8px;
   position: absolute;
   bottom: 0;
+  max-width: 98%;
 
   .input-group {
     padding: 0;
@@ -83,7 +87,7 @@
 
   .btn-send {
     margin: 0;
-    padding: 6px 30px;
+    padding: 6px 50px;
     outline: none !important;
     font-size: 16px;
     letter-spacing: 0;
@@ -100,6 +104,10 @@
 // UserList.js
 .users-list {
     background: #f5f5f5;
+    padding: 20px 5px;
+    min-height: 560px;
+    height: 100%;
+
     h3 {
       text-align: center;
       font-family: 'Raleway';

@@ -73,6 +73,7 @@ class Chat extends React.Component {
     return (
       <div className="chat-page">
         <div className="container">
+          <h1>Welcome to #COMP307 stream!</h1>
           <div className="chat-wrapper">
             <div className="row">
               <div className="col-sm-2 col-md-2">

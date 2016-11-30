@@ -35,7 +35,7 @@ class UserList extends Component {
     return (
       <div className="users-list">
         <div className="users-list__header">
-          <h3>Connected Users: {userCount}</h3>
+          <h3>Online: {userCount}</h3>
           <ul>
             {users}
           </ul>

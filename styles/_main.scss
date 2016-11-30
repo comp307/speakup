@@ -95,6 +95,7 @@ $section-height: 500px;
   }
 
   h3 {
+      margin-top: 40px;
       color: #f0ad4e;
       font-size: 24px;
       text-align: left;
@@ -102,11 +103,17 @@ $section-height: 500px;
       font-family: 'Poppins', sans-serif;
       letter-spacing: -1px;
   }
-
+  
   p {
       margin: 0;
       font-size: 20px;
   }
+
+  .speakup-name{
+      font-style: italic;
+  }
+
+
 }
 
   .contact-section {

@@ -40,23 +40,22 @@ class Main extends React.Component {
                 <h2>About</h2>
                   <section className="about-info">
                     <p>
-                      <span className="speakup-title">Speakup</span> is McGill's first and only web application that facillitates student-professor communication during live lectures.
+                      <span className="speakup-name">Speakup</span> is McGill's first and only web application that facillitates student-professor communication during live lectures.
                     </p>
                       <h3>Ask questions anonymously</h3>
                     <p>
                       Many classroom settings can be loud or intimidating making it difficult to participate in class. <br/>
-                      <b>Speakup</b> provides students with a direct line of communication to the professor
-                      using a chat room interface. All participating users may pose questions or provide input in total anonymity.
+                      <span className="speakup-name">Speakup</span> provides students with a direct line of communication to the professor without any hassle - or face-to-face communication. 
+                      User identity is completely hidden so never again worry about embarrassing yourself in front of peers.
                     </p>
                     <h3>How it works</h3>
                     <p>
-                      Upon selecting the create lecture option, a new lecture stream is created automatically. Students
-                      join the stream by inputting its identification number. Once joined, inquirers may write messages to the question stream for all to view.
-                      The etc..
+                      When a lecture stream is created, a chatroom interface is provided for students to pose questions.
+                      Students join by providing the identification number that is assigned to the stream. 
                     </p>
                     <h3>Multi-purposeful</h3>
                     <p>
-                      Anyone can start a lecture stream. Etc...
+                      Anyone can start a lecture stream - not just professors. Use <span className="speakup-name">Speakup</span> anywhere!
                     </p>
                 </section>
                 </div>

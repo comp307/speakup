@@ -23,6 +23,7 @@ class Create extends React.Component {
         'email': false,
         'password': false,
         'stream_id': false,
+        'stream_name': false,
       },
     };
   }
@@ -77,6 +78,7 @@ class Create extends React.Component {
         if (response.success) {
           let sessionData = {
             user: formData['email'],
+            streamName: formData['stream_name'],
             streamID: response.streamID,
             token: response.token,
           };
@@ -135,6 +137,12 @@ class Create extends React.Component {
               <input type="password" className="form-control" name="password" placeholder="Password" onBlur={this.onUserInput} />
               <span id="password-help" className="help-block">
                 {errors['password']}
+              </span>
+            </div>
+            <div className={fieldClasses['stream_name']}>
+              <input type="text" className="form-control" name="stream_name" placeholder="Stream Name" onBlur={this.onUserInput} />
+              <span id="stream_name-help" className="help-block">
+                {errors['stream_name']}
               </span>
             </div>
             <button type="button" className="btn btn-speakup" onClick={this.handleSubmit}>Create Stream</button>

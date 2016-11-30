@@ -1,31 +1,45 @@
 @import "styles/variables";
 
 
+$chatbox-height: 300px;
+
 .chat-title {
   text-align: center;
   padding: 10px;
   font-family: 'Raleway';
+  height: 10%;
 }
 
 .chat-page {
   @include vertical-align;
   @include fill-screen;
   margin: 0;
+
+  .container {
+    height: 100%;
+  }
 }
 
 .chat-wrapper {
     background-color: #fff;
     margin: 0;
-    min-height: 560px;
+    min-height: $chatbox-height;
     border-radius: 8px;
     min-width: 300px;
     border: 1px solid #f5f5f5;
     box-shadow: #eee 1px 1px 2px;
+    height: 80%;
+
+
+    .row, [class*=' col-'] {
+      height: 100%;
+    }
 }
 
 
 .chat-box {
-    min-height: 560px;
+    height: 100%;
+    min-height: $chatbox-height;
     position: relative;
     border-top: 1px solid #f5f5f5;
     padding: 8px 5px 0px 8px;
@@ -43,7 +57,8 @@
 .message-list {
 
   overflow-y: scroll;
-  height: 500px;
+  min-height: calc(#{$chatbox-height} - 30px);
+  height: 100%;
 
   .message {
     padding: 8px 0px 0px 5px;
@@ -105,7 +120,7 @@
 .users-list {
     background: #f5f5f5;
     padding: 20px 5px;
-    min-height: 560px;
+    min-height: $chatbox-height;
     height: 100%;
 
     h3 {

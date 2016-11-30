@@ -20,10 +20,16 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onSetName = this.onSetName.bind(this);
+
     let session = this.props.sessionData;
     if (session && session.user && session.streamID) {
       // Set up sockets
-      let params = { query: "user=" + session.user + "&streamID=" + session.streamID };
+      let params = {
+        query: "user=" + session.user +
+        "&streamID=" + session.streamID +
+        "&streamName=" + session.streamName
+      };
       this.socket = io(config.api, params);
     } else {
       console.error("Unable to connect to server at http://localhost:8080!");
@@ -69,11 +75,23 @@ class Chat extends React.Component {
     this.socket.disconnect();
   }
 
+  /**
+   * Receives stream name from the child component
+   * and updates session data
+   *
+   * @param {string} streamName - the name of the current stream
+   */
+  onSetName(streamName) {
+    let sessionData = this.state.sessionData;
+    sessionData.streamName = streamName;
+    this.setState({sessionData});
+  }
+
   render() {
     return (
       <div className="chat-page">
         <div className="container">
-          <h1>Welcome to #COMP307 stream!</h1>
+          <h1>Welcome to {this.state.sessionData.streamName} stream!</h1>
           <div className="chat-wrapper">
             <div className="row">
               <div className="col-sm-2 col-md-2">
@@ -86,6 +104,7 @@ class Chat extends React.Component {
                 <ChatBox
                   socket={this.socket}
                   sessionData={this.state.sessionData}
+                  setChatName={this.onSetName}
                   />
               </div>
             </div>

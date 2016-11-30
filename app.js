@@ -29,10 +29,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.setSession = this.setSession.bind(this);
+
     let sessionData;
 
-    if (localStorage.getItem('user') ||
-        localStorage.getItem('streamID') ||
+    if (localStorage.getItem('user')     &&
+        localStorage.getItem('streamID') &&
         localStorage.getItem('token')) {
       sessionData = {
         user: localStorage.getItem('user'),
@@ -41,7 +43,9 @@ class App extends React.Component {
       };
     }
 
-    this.setSession = this.setSession.bind(this);
+    if (localStorage.getItem('streamName')) {
+      sessionData.streamName = localStorage.getItem('streamName');
+    }
 
     this.state = {
       session: sessionData,
@@ -64,6 +68,10 @@ class App extends React.Component {
       localStorage.setItem('user', session.user);
       localStorage.setItem('token', session.token);
       localStorage.setItem('streamID', session.streamID);
+    }
+
+    if (session.streamName) {
+      localStorage.setItem('streamName', session.streamName);
     }
 
     this.setState({session});

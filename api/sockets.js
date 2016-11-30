@@ -20,7 +20,12 @@ function socket(http) {
       let handshakeData = socket.request;
       let streamID = handshakeData._query['streamID'];
       let email = handshakeData._query['user'];
+      let streamName = handshakeData._query['streamName'];
       let user = 'Anonymous';
+
+      if (!streamName) {
+        streamName = 'Anonymous';
+      }
 
       // Set anonymous username
       if (!users.hasOwnProperty(email)) {
@@ -34,6 +39,7 @@ function socket(http) {
       let isNew = !(streams.hasOwnProperty(streamID));
       if (isNew) {
         streams[streamID] = {
+          name: streamName,
           messages: [],
           users: [],
         };
@@ -51,7 +57,10 @@ function socket(http) {
       }
 
       // Send user list and message list to connected user
-      socket.emit('welcome', stream.messages);
+      socket.emit('welcome', {
+        'messages': stream.messages,
+        'name': stream.name,
+      });
       socket.emit('username', user);
       io.to(streamID).emit('userList', stream.users);
 

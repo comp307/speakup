@@ -22,19 +22,18 @@ class ChatBox extends Component {
   }
 
   componentDidMount() {
-    let self = this;
-
     // Initilize messages
     this.props.socket.on('welcome', function(data) {
-      self.setState({
-        messages: data,
+      this.props.setChatName(data.name);
+      this.setState({
+        messages: data.messages,
       });
-    });
+    }.bind(this));
 
     // Add new messages
     this.props.socket.on('newMessage', function(data) {
-      self.addMessage(data);
-    });
+      this.addMessage(data);
+    }.bind(this));
   }
 
   componentDidUpdate() {

@@ -20,22 +20,44 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
 
-    var session = this.props.sessionData;
+    let session = this.props.sessionData;
     if (session && session.user && session.streamID) {
       // Set up sockets
-      var params = { query: "user=" + session.user + "&streamID=" + session.streamID };
+      let params = { query: "user=" + session.user + "&streamID=" + session.streamID };
       this.socket = io(config.api, params);
     } else {
       console.error("Unable to connect to server at http://localhost:8080!");
     }
 
+    this.state = {
+      sessionData: session
+    };
+
   }
 
   componentDidMount() {
 
+    let session = this.props.sessionData;
+
     this.socket.on('connect', function () {
-      console.log("You are connected to Chat X");
-    });
+      this.socket
+        .emit('authenticate', { token: session.token })
+        .on('authenticated', function () {
+          console.log("You are connected to Stream " + session.streamID);
+        })
+        .on('unauthorized', function (msg) {
+          console.log("Unauthorized: " + JSON.stringify(msg.data));
+          throw new Error(msg.data.type);
+        })
+    }.bind(this));
+
+    this.socket.on('username', function (username) {
+      let sessionData = this.state.sessionData;
+      sessionData.user = username;
+      this.setState({
+        sessionData
+      })
+    }.bind(this));
 
     this.socket.on('disconnect', function () {
       console.log("You are disconnected from Chat X");
@@ -56,14 +78,13 @@ class Chat extends React.Component {
               <div className="col-sm-3 col-md-3">
                 <UserList
                   socket={this.socket}
-                  sessionData={this.props.sessionData}
+                  sessionData={this.state.sessionData}
                   />
               </div>
               <div className="col-sm-9 col-md-9">
                 <ChatBox
-                  user={this.props.sessionData.user}
                   socket={this.socket}
-                  sessionData={this.props.sessionData}
+                  sessionData={this.state.sessionData}
                   />
               </div>
             </div>

@@ -157,6 +157,11 @@ class Register extends React.Component {
         } else {
           var errors = this.state.errors;
           errors['name'] = response.message;
+          swal({
+            'title': 'Oops!',
+            'text': response.message,
+            'type': 'error',
+          });
         }
       }
     }.bind(this);

@@ -1,70 +1,75 @@
 'use strict';
 
+const socketioJwt = require('socketio-jwt');
+const config = require('./config');
+
 /**
  * Listens for new socket connections
  * @param {object} http - reference to http server
  */
-var socketioJwt = require('socketio-jwt');
-var config = require('./config');
-
 function socket(http) {
   let io = require('socket.io')(http);
+  let usernames = ['Zeus', 'Hera', 'Poseidon', 'Demeter', 'Ares', 'Athena', 'Apollo', 'Artemis', 'Hephaestus', 'Aphrodite', 'Hermes', 'Dionysus', 'Hades', 'Hypnos', 'Nike', 'Janus', 'Nemesis', 'Iris', 'Hecate', 'Tyche'];
   let streams = {};
+  let users = {};
 
   io.on('connection', socketioJwt.authorize({
     secret: config.secret,
-    timeout: 15000
-  })).on('authenticated', function (socket) {
-    let usernames = ['Zeus','Hera','Poseidon','Demeter','Ares','Athena','Apollo','Artemis','Hephaestus','Aphrodite','Hermes','Dionysus','Hades','Hypnos','Nike','Janus','Nemesis','Iris','Hecate','Tyche'];
-    let handshakeData = socket.request;
-    let user = '';
-    if(usernames.length != 0){
-      user = usernames.pop();
-    }
-    else{
-      user = handshakeData._query['streamID'];
-    }
-    
-    let streamID = handshakeData._query['streamID'];
-    let isNew = !(streams.hasOwnProperty(streamID));
+    timeout: 15000,
+  })).on('authenticated', function(socket) {
+      let handshakeData = socket.request;
+      let streamID = handshakeData._query['streamID'];
+      let email = handshakeData._query['user'];
+      let user = 'Anonymous';
 
-    // Create new stream with the given ID
-    if (isNew) {
-      streams[streamID] = {
-        messages: [],
-        users: [],
-      };
-    }
+      // Set anonymous username
+      if (!users.hasOwnProperty(email)) {
+        if (usernames.length > 0) user = usernames.pop();
+        users[email] = user;
+      } else {
+        user = users[email];
+      }
 
-    let stream = streams[streamID];
+      // Create new stream with the given ID
+      let isNew = !(streams.hasOwnProperty(streamID));
+      if (isNew) {
+        streams[streamID] = {
+          messages: [],
+          users: [],
+        };
+      }
 
-    // Add socket to a "room"
-    socket.join(streamID);
+      let stream = streams[streamID];
 
-    // Add user to stream
-    if (stream.users.indexOf(user) < 0) {
-      console.log(user + ' connected to stream #' + streamID);
-      stream.users.push(user);
-    }
+      // Add socket to a "room"
+      socket.join(streamID);
 
-    // Send user list and message list to connected user
-    socket.emit('welcome', stream.messages);
-    io.to(streamID).emit('userList', stream.users);
+      // Add user to stream
+      if (stream.users.indexOf(user) < 0) {
+        console.log(user + ' connected to stream #' + streamID);
+        stream.users.push(user);
+      }
 
-
-    // Listen for new messages and broadcast them to the room
-    socket.on('newMessage', function (msg) {
-      stream.messages.push(msg);
-      io.to(streamID).emit('newMessage', msg);
-    });
-
-    // Listen for disconnections and remove users from the list
-    socket.on('disconnect', function () {
-      console.log('User ' + user + ' has disconnected!');
-      let index = stream.users.indexOf(user);
-      stream.users.splice(index, 1);
+      // Send user list and message list to connected user
+      socket.emit('welcome', stream.messages);
+      socket.emit('username', user);
       io.to(streamID).emit('userList', stream.users);
-    });
+
+
+      // Listen for new messages and broadcast them to the room
+      socket.on('newMessage', function(msg) {
+        stream.messages.push(msg);
+        io.to(streamID).emit('newMessage', msg);
+      });
+
+      // Listen for disconnections and remove users from the list
+      socket.on('disconnect', function() {
+        console.log('User ' + user + ' has disconnected!');
+        let index = stream.users.indexOf(user);
+        stream.users.splice(index, 1);
+        io.to(streamID).emit('userList', stream.users);
+      });
   });
-};
+}
+
 module.exports.socket = socket;

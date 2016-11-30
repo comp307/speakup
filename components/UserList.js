@@ -26,6 +26,9 @@ class UserList extends Component {
   render() {
     const userCount = this.state.users.length;
     const users = this.state.users.map((user, key) => {
+      if (this.props.sessionData.user === user) {
+        user = <b>{user}</b>;
+      }
       return (<li key={key}><i className="glyphicon glyphicon-user"/> {user}</li>);
     });
 

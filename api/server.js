@@ -23,16 +23,16 @@ app.use(cors());
 //TO-DO:
 //[x] Check against hash of the user
 app.post('/api/auth', function (req, res) {
-    if (!isCorrectEmail(req.body.name)) {
+    if (!isCorrectEmail(req.body.email)) {
         res.json({ success: false, message: 'Provide correct email' });
     } else {
         User.findOne({
-            name: req.body.name,
+            email: req.body.email,
         }, function (err, user) {
             if (err) throw err;
 
             if (!user) {
-                res.json({ success: false, message: 'Wrong username' });
+                res.json({ success: false, message: 'Wrong email' });
             } else {
 
                 bcrypt.compare(req.body.password, user['password'], function (err, isMatch) {
@@ -59,7 +59,7 @@ app.post('/api/auth', function (req, res) {
 //Current password policy
 //Password length should be between 8 and 6 characters
 app.post('/api/reg', function (req, res) {
-    if (!isCorrectEmail(req.body.name)) {
+    if (!isCorrectEmail(req.body.email)) {
         res.json({ success: false, message: 'Provide correct email' });
     } else if (req.body.password.length < 8 || req.body.password.length > 16) {
         res.json({ success: false, message: 'Inadequate length of password' });
@@ -69,20 +69,20 @@ app.post('/api/reg', function (req, res) {
     }
     else {
         User.findOne({
-            name: req.body.name
+            email: req.body.email
         }, function (err, user) {
             console.log('error after 2');
             if (err) throw error;
 
             if (user) {
-                res.json({ success: false, message: 'Username already exists' });
+                res.json({ success: false, message: 'Email already exists' });
             }
             else {
                 //we are saving user and hashing his password
                 bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(req.body.password, salt, function (err, hash) {
                         var userModel = new User({
-                            name: req.body.name,
+                            email: req.body.email,
                             password: hash
                         });
                         userModel.save(function (err) {
@@ -104,16 +104,7 @@ app.post('/api/reg', function (req, res) {
 var server = app.listen(port);
 console.log('Server runs at http:' + port);
 
-var stream_id = 0;
-var streams = [];
-require('./sockets.js').Socket(server, streams);
-
-
-function Stream(id) {
-    this.id = id;
-    this.messeges = [];
-    this.users = [];
-}
+require('./sockets.js').socket(server);
 
 //something@domain.superdomain is allowed
 //instead of looping can be done using hashmap

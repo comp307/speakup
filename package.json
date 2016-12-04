@@ -8,8 +8,8 @@
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
-    "start": "node dev-server.js",
-    "server": "node api/server.js"
+    "start": "node api/server.js",
+    "dev": "node dev-server.js"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-# SpeakUp App
+# SpeakUp
 >**Speakup** is a web-application that gives a voice to silent majority in McGill classrooms.
 
 >Silent majority of students that don't ask questions during lectures
@@ -12,7 +12,7 @@ is irrelevant.
 
 ## Installation
 
->Speakup can be easily installed and tested on any machine with NodeJS and NPM installed. 
+>**Speakup** can be easily installed and tested on any machine with NodeJS and NPM installed. 
 Follow the steps below to get started.
 
 ### 1. Install NodeJS

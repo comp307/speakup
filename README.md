@@ -40,6 +40,10 @@ npm install
 You can test the app, by opening `index.html` in the browser of you choice
 
 ```bash
+// Start local web server on port 8080
+npm start
+
+// Open the app
 open index.html
 ```
 
